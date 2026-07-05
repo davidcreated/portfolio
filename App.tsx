@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-nat
 
 import { AboutText } from "./src/native/components/AboutText";
 import { ContactLinks } from "./src/native/components/ContactLinks";
+import { CursorDot } from "./src/native/components/CursorDot";
 import { Dock } from "./src/native/components/Dock";
 import { EducationList } from "./src/native/components/EducationList";
 import { Header } from "./src/native/components/Header";
@@ -65,19 +66,15 @@ export default function App() {
             </Section>
           </Reveal>
           <Reveal delay={440}>
-            <Section title="Hobbies">
-              <SkillList items={DATA.hobbies} />
-            </Section>
-          </Reveal>
-          <Reveal delay={520}>
             <ProjectList items={DATA.projects} />
           </Reveal>
-          <Reveal delay={600}>
+          <Reveal delay={520}>
             <ContactLinks items={DATA.contact} />
           </Reveal>
         </View>
       </ScrollView>
       <Dock items={DATA.navbar} />
+      <CursorDot />
     </SafeAreaView>
   );
 }

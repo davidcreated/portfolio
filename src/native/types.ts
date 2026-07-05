@@ -42,7 +42,6 @@ export type PortfolioData = {
   description: string;
   education: EducationItem[];
   headline: string;
-  hobbies: string[];
   location: string;
   name: string;
   navbar: ContactItem[];

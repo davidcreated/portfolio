@@ -1,5 +1,16 @@
-import { useState } from "react";
-import { Image, LayoutChangeEvent, Pressable, StyleSheet, Text, View } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { useEffect, useRef, useState } from "react";
+import {
+  Animated,
+  Easing,
+  Image,
+  Linking,
+  LayoutChangeEvent,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 import { ProjectItem } from "../types";
@@ -40,39 +51,92 @@ type ProjectCardProps = {
 
 function ProjectCard({ isTwoColumn, item }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
+  const reveal = useRef(new Animated.Value(0)).current;
+  const pulse = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.spring(reveal, {
+      damping: 14,
+      mass: 0.6,
+      stiffness: 220,
+      toValue: hovered ? 1 : 0,
+      useNativeDriver: true,
+    }).start();
+  }, [hovered, reveal]);
+
+  useEffect(() => {
+    if (!hovered) {
+      pulse.stopAnimation();
+      pulse.setValue(0);
+      return;
+    }
+
+    pulse.setValue(0);
+    const loop = Animated.loop(
+      Animated.timing(pulse, {
+        duration: 1100,
+        easing: Easing.out(Easing.ease),
+        toValue: 1,
+        useNativeDriver: true,
+      }),
+    );
+    loop.start();
+
+    return () => loop.stop();
+  }, [hovered, pulse]);
+
+  const beaconScale = reveal.interpolate({ inputRange: [0, 1], outputRange: [0.5, 1] });
+  const pulseScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.9] });
+  const pulseOpacity = Animated.multiply(
+    reveal,
+    pulse.interpolate({
+      inputRange: [0, 0.4, 1],
+      outputRange: [0, 0.4, 0],
+    }),
+  );
 
   return (
     <Pressable
+      accessibilityRole={item.href ? "link" : undefined}
       onHoverIn={() => setHovered(true)}
       onHoverOut={() => setHovered(false)}
+      onPress={() => item.href && void Linking.openURL(item.href)}
       style={[
         styles.card,
         isTwoColumn ? styles.twoColumnCard : styles.fullCard,
         hovered && styles.cardHovered,
       ]}
     >
-      <ExternalPressable url={item.href}>
-        <View style={styles.media}>
-          {item.media ? (
-            <Image
-              accessibilityIgnoresInvertColors
-              resizeMode="cover"
-              source={{ uri: item.media }}
-              style={styles.mediaImage}
-            />
-          ) : (
-            <Text style={styles.mediaText}>{item.title}</Text>
-          )}
+      <View style={styles.media}>
+        {item.media ? (
+          <Image
+            accessibilityIgnoresInvertColors
+            resizeMode="cover"
+            source={{ uri: item.media }}
+            style={styles.mediaImage}
+          />
+        ) : (
+          <Text style={styles.mediaText}>{item.title}</Text>
+        )}
+        <View pointerEvents="none" style={styles.beaconWrapper}>
+          <Animated.View
+            style={[
+              styles.beaconPulse,
+              { opacity: pulseOpacity, transform: [{ scale: pulseScale }] },
+            ]}
+          />
+          <Animated.View
+            style={[styles.beacon, { opacity: reveal, transform: [{ scale: beaconScale }] }]}
+          >
+            <Feather color={colors.background} name="arrow-up-right" size={28} />
+          </Animated.View>
         </View>
-      </ExternalPressable>
+      </View>
       <View style={styles.body}>
         <View style={styles.cardHeader}>
           <View style={styles.cardTitleGroup}>
             <Text style={styles.cardTitle}>{item.title}</Text>
           </View>
-          <ExternalPressable url={item.href}>
-            <Text style={[styles.arrow, hovered && styles.arrowHovered]}>↗</Text>
-          </ExternalPressable>
         </View>
         <Text style={styles.description}>{item.description}</Text>
         <View style={styles.links}>
@@ -190,6 +254,32 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     height: 192,
     justifyContent: "center",
+    position: "relative",
+  },
+  beaconWrapper: {
+    alignItems: "center",
+    bottom: 0,
+    justifyContent: "center",
+    left: 0,
+    position: "absolute",
+    right: 0,
+    top: 0,
+  },
+  beaconPulse: {
+    backgroundColor: colors.blue,
+    borderRadius: 999,
+    height: 64,
+    position: "absolute",
+    width: 64,
+  },
+  beacon: {
+    alignItems: "center",
+    backgroundColor: colors.blue,
+    borderRadius: 999,
+    boxShadow: `0 0 30px ${colors.blue}`,
+    height: 64,
+    justifyContent: "center",
+    width: 64,
   },
   mediaText: {
     color: colors.muted,
@@ -221,13 +311,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 16,
     fontWeight: "600",
-  },
-  arrow: {
-    color: colors.muted,
-    fontSize: 18,
-  },
-  arrowHovered: {
-    color: colors.blue,
   },
   description: {
     color: colors.muted,

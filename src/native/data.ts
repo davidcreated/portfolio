@@ -15,21 +15,26 @@ export const DATA: PortfolioData = {
   skills: [
     "Flutter",
     "React Native",
-    "Swift / SwiftUI",
+    "Swift",
     "Kotlin",
-    "Go (Golang)",
+    "Go",
     "TypeScript",
-    "Node.js / Next.js",
+    "Node.js",
+    "Next.js",
     "GraphQL",
-    "WebSockets / MQTT",
+    "WebSockets",
+    "MQTT",
     "PostgreSQL",
     "Firebase",
-    "SQLite / Hive",
+    "SQLite",
+    "Hive",
     "Clean Architecture",
-    "Riverpod / BLoC",
-    "CI/CD (Fastlane, Codemagic, GitHub Actions)",
+    "Riverpod",
+    "BLoC",
+    "Fastlane",
+    "Codemagic",
+    "GitHub Actions",
   ],
-  hobbies: ["Reading", "Exploring new tech", "Gaming", "Watching football"],
   contact: [
     {
       display: "davidcreated",
@@ -156,6 +161,20 @@ export const DATA: PortfolioData = {
     },
   ],
   projects: [
+    {
+      title: "Carbon-Adjust",
+      href: "https://play.google.com/store/apps/details?id=com.carbonadjust.mobile&pcampaignid=web_share",
+      description:
+        "Offline-first Flutter app for the Carbon-Adjust® Clearing Platform, a real-time energy marketplace connecting households and businesses to grid-balancing opportunities.",
+      media:
+        "https://play-lh.googleusercontent.com/oaKGM9OO4Fa7PC-c0tWn8C22v4XJ2p3E2BhvWJ11kFm8kEXgyKIwS61bW1Jdgg2_d173PG9RbEslMuFEFE8B2A",
+      links: [
+        {
+          label: "Google Play",
+          url: "https://play.google.com/store/apps/details?id=com.carbonadjust.mobile&pcampaignid=web_share",
+        },
+      ],
+    },
     {
       title: "TripAdvisor",
       href: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",

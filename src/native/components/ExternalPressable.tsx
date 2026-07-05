@@ -1,5 +1,5 @@
 import { PropsWithChildren, useState } from "react";
-import { Linking, Pressable, StyleSheet } from "react-native";
+import { GestureResponderEvent, Linking, Pressable, StyleSheet } from "react-native";
 
 import { radii } from "../styles";
 
@@ -10,7 +10,9 @@ type ExternalPressableProps = PropsWithChildren<{
 export function ExternalPressable({ children, url }: ExternalPressableProps) {
   const [hovered, setHovered] = useState(false);
 
-  const openUrl = () => {
+  const openUrl = (event: GestureResponderEvent) => {
+    event.stopPropagation();
+
     if (!url) {
       return;
     }
