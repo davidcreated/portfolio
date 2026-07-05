@@ -32,10 +32,20 @@ export function Header({
   return (
     <View style={[styles.container, isStacked && styles.stackedContainer]}>
       {isStacked ? (
-        <Image accessibilityIgnoresInvertColors source={avatar} style={styles.avatar} />
+        <Image
+          accessibilityIgnoresInvertColors
+          alt={`${name} — ${description}`}
+          source={avatar}
+          style={styles.avatar}
+        />
       ) : null}
       <View style={styles.copy}>
-        <Text style={[styles.title, isStacked && styles.stackedTitle]}>
+        <Text
+          accessibilityLabel={`${name}, ${description}`}
+          accessibilityRole="header"
+          aria-level={1}
+          style={[styles.title, isStacked && styles.stackedTitle]}
+        >
           Hi, I&apos;m <Text style={styles.accentName}>{firstName}</Text> 👋
         </Text>
         <Text style={styles.description}>
@@ -49,7 +59,12 @@ export function Header({
         </ExternalPressable>
       </View>
       {!isStacked ? (
-        <Image accessibilityIgnoresInvertColors source={avatar} style={styles.avatar} />
+        <Image
+          accessibilityIgnoresInvertColors
+          alt={`${name} — ${description}`}
+          source={avatar}
+          style={styles.avatar}
+        />
       ) : null}
     </View>
   );

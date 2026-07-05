@@ -19,6 +19,7 @@ import { StartProject } from "./src/native/components/StartProject";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { TopNav } from "./src/native/components/TopNav";
 import { DATA } from "./src/native/data";
+import { SEO, SITE_URL } from "./src/native/seo";
 import { colors, darkTheme, getThemeVariables, spacing } from "./src/native/styles";
 import { ProjectItem } from "./src/native/types";
 
@@ -39,16 +40,21 @@ export default function App() {
   return (
     <SafeAreaView style={[styles.safeArea, themeVariables]}>
       <Head>
-        <title>David-Paul Folorunsho-Roberts · Software Engineer</title>
-        <meta
-          name="description"
-          content="Software Engineer · Mobile & Backend. 6+ years shipping production apps across fintech, health tech, e-commerce, and energy/IoT."
-        />
-        <meta property="og:title" content="David-Paul Folorunsho-Roberts · Software Engineer" />
-        <meta
-          property="og:description"
-          content="Software Engineer · Mobile & Backend. 6+ years shipping production apps across fintech, health tech, e-commerce, and energy/IoT."
-        />
+        <title>{SEO.title}</title>
+        <meta name="description" content={SEO.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={SEO.name} />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:title" content={SEO.title} />
+        <meta property="og:description" content={SEO.description} />
+        <meta property="og:image" content={SEO.image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={SEO.imageAlt} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={SEO.title} />
+        <meta name="twitter:description" content={SEO.description} />
+        <meta name="twitter:image" content={SEO.image} />
       </Head>
       <StatusBar style="light" />
       <GlowBackground />

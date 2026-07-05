@@ -110,6 +110,7 @@ function Shot({ aspectRatio, href, label, uri }: ShotProps) {
       >
         <Image
           accessibilityIgnoresInvertColors
+          alt={label}
           resizeMode="cover"
           source={{ uri }}
           style={styles.image}
