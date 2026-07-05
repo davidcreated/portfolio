@@ -49,7 +49,7 @@ export const DATA: PortfolioData = {
     {
       display: "timifroberts@gmail.com",
       label: "Email",
-      url: "mailto:timifroberts@gmail.com",
+      url: "mailto:timifroberts@gmail.com?subject=Hello%20from%20your%20portfolio",
     },
   ],
   navbar: [
@@ -161,6 +161,28 @@ export const DATA: PortfolioData = {
     },
   ],
   projects: [
+    {
+      title: "Trippicker",
+      href: "https://apps.apple.com/us/app/trippicker-web3-mobility/id6748451455",
+      description:
+        "Web3 ride-hailing app live on the App Store, with real-time GPS tracking, fare estimation, in-app payments, and driver-passenger matching.",
+      media:
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/55/67/3955672f-5e6d-5ed9-fb47-50234c7fef56/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      kind: "first-party",
+      architecture:
+        "Flutter ride-hailing app with real-time GPS tracking and Google Maps SDK integration, plus a Web3 layer that rewards riders with an on-chain token for completed trips.",
+      techStack: ["Flutter", "Firebase"],
+      highlights: [
+        "Real-time GPS tracking, fare estimation, and driver-passenger matching",
+        "In-app payments and a Web3 rewards layer (on-chain token per trip)",
+      ],
+      links: [
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/trippicker-web3-mobility/id6748451455",
+        },
+      ],
+    },
     {
       title: "Carbon-Adjust",
       href: "https://play.google.com/store/apps/details?id=com.carbonadjust.mobile&pcampaignid=web_share",
