@@ -32,6 +32,11 @@ export function AppShowcase({ items }: AppShowcaseProps) {
                 <View style={styles.taglinePill}>
                   <Text style={styles.taglineText}>{item.tagline}</Text>
                 </View>
+                {item.note ? (
+                  <View style={styles.notePill}>
+                    <Text style={styles.noteText}>{item.note}</Text>
+                  </View>
+                ) : null}
               </View>
               <Text style={styles.description}>{item.description}</Text>
             </View>
@@ -156,6 +161,20 @@ const styles = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 12,
     fontWeight: "700",
+  },
+  notePill: {
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.border,
+    borderRadius: radii.sm,
+    borderWidth: 1,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 3,
+  },
+  noteText: {
+    color: colors.muted,
+    fontFamily: fonts.body,
+    fontSize: 12,
+    fontWeight: "600",
   },
   description: {
     color: colors.muted,

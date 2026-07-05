@@ -525,5 +525,71 @@ export const DATA: PortfolioData = {
         "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/97/8f/03/978f03e5-5820-5180-470a-9819caa5b457/14.png/460x0w.jpg",
       ],
     },
+    {
+      title: "TripAdvisor",
+      tagline: "Travel discovery",
+      note: "Contributor",
+      description:
+        "Contributed to TripAdvisor, the global travel platform for discovering and booking hotels, restaurants, and experiences, with reviews, trip planning, and rewards.",
+      href: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",
+      aspectRatio: 0.462,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/93/a5/25/93a5253f-d0e7-5a1e-a36d-02b304739af4/0_APP_IPHONE_65_0.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a6/26/f4/a626f455-d168-852a-d893-8fa746870a50/1_APP_IPHONE_65_1.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e0/ef/31/e0ef3169-a362-06a8-4786-81f46c5f1b3d/2_APP_IPHONE_65_2.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6e/bf/d2/6ebfd232-d9e2-c55f-7ae5-807701611ea0/3_APP_IPHONE_65_3.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2d/d3/d3/2dd3d340-690d-90e5-afdc-57ee6057ec29/4_APP_IPHONE_65_4.png/460x0w.jpg",
+      ],
+    },
+    {
+      title: "Navega",
+      tagline: "Boat-rental marketplace",
+      note: "Contributor",
+      description:
+        "Contributed to Navega, a boat-rental marketplace connecting owners and renters with listings, availability, booking, and secure payments.",
+      href: "https://apps.apple.com/us/app/navega-rent-your-boat/id6742487553",
+      aspectRatio: 0.4614,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0b/ff/db/0bffdb55-8172-2fa8-b5b2-557797e76d9f/image1.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/02/05/76/0205761e-8976-8651-09a8-8b08da709dc5/image2.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/aa/ec/56/aaec567d-ae00-31b8-8e06-ab6ceaeba493/image3.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4d/c0/9a/4dc09a9d-e9cf-91a2-9394-62a67204893f/image4.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ef/ae/db/efaedb78-3ce1-3c9a-c1b1-48bf090aa470/image5.png/460x0w.jpg",
+      ],
+    },
+    {
+      title: "AfroIntroductions",
+      tagline: "Afro dating",
+      note: "Contributor",
+      description:
+        "Contributed to AfroIntroductions, an Afro dating platform connecting singles across the African diaspora with profiles, matching, and messaging.",
+      href: "https://apps.apple.com/us/app/afrointroductions-afro-dating/id1597869513",
+      aspectRatio: 0.462,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8b/1a/f6/8b1af6e6-ea8b-1be1-08d6-3f295058484b/8b78213f-8eef-49e3-8edd-0b85645b00f7_Apple_6.5_01_V1.jpg/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f1/91/0d/f1910d84-7c1f-bc6a-6472-5af68581d080/a3f799ff-3c72-436e-8192-b6cf8c63a05c_Apple_6.5_02_V1.jpg/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ca/f7/10/caf710b8-d712-45f9-2025-519619345029/91029e5f-21bc-4cfd-9700-45c8eb427c4b_Apple_6.5_03_V1.jpg/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9a/47/fb/9a47fb18-531b-d4c0-6853-27b69935d6a6/7e5dd1ff-953b-45fb-aeeb-e49494346911_Apple_6.5_04_V1.jpg/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/1e/3a/791e3aa6-a7cb-c8f1-ab5f-ee968e21ce62/25d2866d-4946-4e6f-b5c8-e3afc8cd9689_Apple_6.5_05_V1.jpg/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/99/af/1899af42-cb1f-4b8d-dd2a-049ca8f42e31/4e802b18-29db-470e-bca6-6e3cfaeb2b29_Apple_6.5_06_V1.jpg/460x0w.jpg",
+      ],
+    },
+    {
+      title: "Respawn",
+      tagline: "Gamified habit building",
+      note: "Contributor",
+      description:
+        "Contributed to Respawn, a gamified habit-building app that turns daily routines into quests with XP, streaks, and guided rituals.",
+      href: "https://play.google.com/store/apps/details?id=com.nek12.respawn",
+      aspectRatio: 0.5625,
+      screenshots: [
+        "https://play-lh.googleusercontent.com/5yDbhR-Nwmj2o5gDW1x8splsJCFv1eK4yYF75zJMEMheAs5OHnSno097y6oKPtvBtpqhPcRYZsbXTGdcH2izxGs=w480",
+        "https://play-lh.googleusercontent.com/88JeUeCI-FHNgD0SF9dxXlv_USNmtsPdiRymufBU6upsQK9T7ZC728EqsPB-qOLM8btdBoqSTVTq8zWKmSQp=w480",
+        "https://play-lh.googleusercontent.com/AvFd4JOY6YEQCGQ5B-4NCaHuX4mgzbDvGTx40GuakRetsCHZoQGXamCpfWNgA4oOHaFrDEg698N_BRoOuPFVVg=w480",
+        "https://play-lh.googleusercontent.com/EMpKYLO9pjIQU8tHjsMGgDV7rFUJn2CZMF91ddB7s7SvfJneYLGXJz7rYmEWLGs5Nv0t-IM-A2Ko2XxYiQl2JA=w480",
+        "https://play-lh.googleusercontent.com/F1GyHlhA-x_epa9ovWPVIdcb-MZqLQwecTQjcR9gwO1wB4VVzGYdNjowWlzLjhBu_H8wd56RIvUXkaf9-TzAbNA=w480",
+        "https://play-lh.googleusercontent.com/QtO4B_9hUMTO1OjWWMJrOWiAsZngtLEz0p6cR_MmxSWYJ5g09DdE70mfG0aVoOsWWKJdElo2a6ESEuuVPEL0=w480",
+      ],
+    },
   ],
 };

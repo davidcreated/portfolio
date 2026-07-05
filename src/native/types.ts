@@ -45,6 +45,7 @@ export type ShowcaseItem = {
   aspectRatio: number;
   description: string;
   href: string;
+  note?: string;
   screenshots: string[];
   tagline: string;
   title: string;
