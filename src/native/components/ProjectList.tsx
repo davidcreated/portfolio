@@ -4,12 +4,12 @@ import {
   Animated,
   Easing,
   Image,
-  Linking,
   LayoutChangeEvent,
   Pressable,
   StyleSheet,
   Text,
   View,
+  ViewStyle,
 } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
@@ -18,9 +18,10 @@ import { ExternalPressable } from "./ExternalPressable";
 
 type ProjectListProps = {
   items: ProjectItem[];
+  onSelectProject: (item: ProjectItem) => void;
 };
 
-export function ProjectList({ items }: ProjectListProps) {
+export function ProjectList({ items, onSelectProject }: ProjectListProps) {
   const [gridWidth, setGridWidth] = useState(0);
   const isTwoColumn = gridWidth >= 640;
 
@@ -29,15 +30,20 @@ export function ProjectList({ items }: ProjectListProps) {
   };
 
   return (
-    <View style={styles.wrapper}>
+    <View nativeID="projects" style={styles.wrapper}>
       <SectionHeader
         eyebrow="Projects"
-        subtitle="A few selected projects I've had my hands on"
+        subtitle="Production and open-source work spanning fintech, health tech, and infrastructure"
         title="Selected project work"
       />
       <View onLayout={updateGridWidth} style={styles.grid}>
         {items.map((item) => (
-          <ProjectCard isTwoColumn={isTwoColumn} item={item} key={item.title} />
+          <ProjectCard
+            isTwoColumn={isTwoColumn}
+            item={item}
+            key={item.title}
+            onSelect={onSelectProject}
+          />
         ))}
       </View>
     </View>
@@ -47,9 +53,10 @@ export function ProjectList({ items }: ProjectListProps) {
 type ProjectCardProps = {
   isTwoColumn: boolean;
   item: ProjectItem;
+  onSelect: (item: ProjectItem) => void;
 };
 
-function ProjectCard({ isTwoColumn, item }: ProjectCardProps) {
+function ProjectCard({ isTwoColumn, item, onSelect }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const reveal = useRef(new Animated.Value(0)).current;
   const pulse = useRef(new Animated.Value(0)).current;
@@ -97,10 +104,10 @@ function ProjectCard({ isTwoColumn, item }: ProjectCardProps) {
 
   return (
     <Pressable
-      accessibilityRole={item.href ? "link" : undefined}
+      accessibilityRole="button"
       onHoverIn={() => setHovered(true)}
       onHoverOut={() => setHovered(false)}
-      onPress={() => item.href && void Linking.openURL(item.href)}
+      onPress={() => onSelect(item)}
       style={[
         styles.card,
         isTwoColumn ? styles.twoColumnCard : styles.fullCard,
@@ -128,7 +135,7 @@ function ProjectCard({ isTwoColumn, item }: ProjectCardProps) {
           <Animated.View
             style={[styles.beacon, { opacity: reveal, transform: [{ scale: beaconScale }] }]}
           >
-            <Feather color={colors.background} name="arrow-up-right" size={28} />
+            <Feather color={colors.background} name="maximize-2" size={26} />
           </Animated.View>
         </View>
       </View>
@@ -176,7 +183,8 @@ export function SectionHeader({ eyebrow, subtitle, title }: SectionHeaderProps) 
 const styles = StyleSheet.create({
   wrapper: {
     gap: spacing.xl,
-  },
+    scrollMarginTop: 96,
+  } as ViewStyle,
   sectionHeader: {
     alignItems: "center",
     gap: spacing.md,

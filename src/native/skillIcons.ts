@@ -1,5 +1,6 @@
 const SKILL_ICON_SLUGS: Record<string, string> = {
   Codemagic: "codemagic",
+  Docker: "docker",
   Fastlane: "fastlane",
   Firebase: "firebase",
   Flutter: "flutter",
@@ -11,7 +12,10 @@ const SKILL_ICON_SLUGS: Record<string, string> = {
   "Next.js": "nextdotjs",
   "Node.js": "nodedotjs",
   PostgreSQL: "postgresql",
+  React: "react",
   "React Native": "react",
+  Redis: "redis",
+  Rust: "rust",
   SQLite: "sqlite",
   Swift: "swift",
   TypeScript: "typescript",

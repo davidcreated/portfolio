@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-native";
 
 import { AboutText } from "./src/native/components/AboutText";
@@ -7,33 +8,35 @@ import { CursorDot } from "./src/native/components/CursorDot";
 import { Dock } from "./src/native/components/Dock";
 import { EducationList } from "./src/native/components/EducationList";
 import { Header } from "./src/native/components/Header";
+import { ProjectDetailModal } from "./src/native/components/ProjectDetailModal";
 import { ProjectList } from "./src/native/components/ProjectList";
 import { Reveal } from "./src/native/components/Reveal";
 import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
 import { TimelineList } from "./src/native/components/TimelineList";
+import { TopNav } from "./src/native/components/TopNav";
 import { DATA } from "./src/native/data";
-import { colors, darkTheme, spacing } from "./src/native/styles";
+import { colors, darkTheme, getThemeVariables, spacing } from "./src/native/styles";
+import { ProjectItem } from "./src/native/types";
+
+const NAV_ITEMS = [
+  { id: "about", label: "About" },
+  { id: "work-experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function App() {
-  const theme = darkTheme;
-  const themeVariables = {
-    "--color-background": theme.background,
-    "--color-card": theme.card,
-    "--color-foreground": theme.foreground,
-    "--color-muted": theme.muted,
-    "--color-border": theme.border,
-    "--color-accent": theme.accent,
-    "--color-accent-soft": theme.accentSoft,
-    "--color-ring": theme.ring,
-    "--color-blue": theme.blue,
-  } as ViewStyle;
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const themeVariables = getThemeVariables(darkTheme) as ViewStyle;
 
   return (
     <SafeAreaView style={[styles.safeArea, themeVariables]}>
       <StatusBar style="light" />
       <GlowBackground />
       <BackgroundGrid />
+      <TopNav items={NAV_ITEMS} />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.page}>
           <Reveal>
@@ -66,7 +69,7 @@ export default function App() {
             </Section>
           </Reveal>
           <Reveal delay={440}>
-            <ProjectList items={DATA.projects} />
+            <ProjectList items={DATA.projects} onSelectProject={setSelectedProject} />
           </Reveal>
           <Reveal delay={520}>
             <ContactLinks items={DATA.contact} />
@@ -75,6 +78,7 @@ export default function App() {
       </ScrollView>
       <Dock items={DATA.navbar} />
       <CursorDot />
+      <ProjectDetailModal item={selectedProject} onClose={() => setSelectedProject(null)} />
     </SafeAreaView>
   );
 }

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ViewStyle } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 import { ContactItem } from "../types";
@@ -10,7 +10,7 @@ type ContactLinksProps = {
 
 export function ContactLinks({ items }: ContactLinksProps) {
   return (
-    <View style={styles.card}>
+    <View nativeID="contact" style={styles.card}>
       <GridPattern />
       <View style={styles.pill}>
         <Text style={styles.pillText}>Contact</Text>
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     padding: 40,
     position: "relative",
-  },
+    scrollMarginTop: 96,
+  } as ViewStyle,
   grid: {
     flexDirection: "row",
     flexWrap: "wrap",

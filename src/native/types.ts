@@ -29,10 +29,15 @@ export type WorkItem = {
 };
 
 export type ProjectItem = {
+  architecture?: string;
   description: string;
+  highlights?: string[];
   href: string;
+  kind?: "first-party" | "contribution";
   links: ContactItem[];
   media?: string;
+  role?: string;
+  techStack?: string[];
   title: string;
 };
 

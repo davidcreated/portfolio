@@ -34,6 +34,20 @@ export const darkTheme = {
   blue: "#60A5FA",
 };
 
+export function getThemeVariables(theme: typeof darkTheme) {
+  return {
+    "--color-background": theme.background,
+    "--color-card": theme.card,
+    "--color-foreground": theme.foreground,
+    "--color-muted": theme.muted,
+    "--color-border": theme.border,
+    "--color-accent": theme.accent,
+    "--color-accent-soft": theme.accentSoft,
+    "--color-ring": theme.ring,
+    "--color-blue": theme.blue,
+  };
+}
+
 export const fonts = {
   body: "CabinetGrotesk",
   heading: "ClashDisplay",

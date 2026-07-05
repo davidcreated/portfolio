@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ViewStyle } from "react-native";
 
 import { colors, fonts, spacing } from "../styles";
 
@@ -22,7 +22,8 @@ export function Section({ children, title }: SectionProps) {
 const styles = StyleSheet.create({
   section: {
     gap: spacing.lg,
-  },
+    scrollMarginTop: 96,
+  } as ViewStyle,
   titleRow: {
     alignItems: "center",
     flexDirection: "row",
