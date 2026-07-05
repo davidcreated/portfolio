@@ -1,43 +1,35 @@
-import { PropsWithChildren, useEffect, useRef } from "react";
-import { Animated, StyleSheet } from "react-native";
+import { PropsWithChildren } from "react";
+import { StyleSheet, View, ViewStyle } from "react-native";
 
 type RevealProps = PropsWithChildren<{
   delay?: number;
 }>;
 
+/**
+ * Entrance fade/rise animation driven purely by CSS (via react-native-web's
+ * animationKeyframes), so the content is visible without waiting for the JS
+ * bundle to download and hydrate. The resting state is fully visible; the
+ * animation just plays once on load.
+ */
 export function Reveal({ children, delay = 0 }: RevealProps) {
-  const opacity = useRef(new Animated.Value(0)).current;
-  const translateY = useRef(new Animated.Value(8)).current;
-
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(opacity, {
-        delay,
-        duration: 420,
-        toValue: 1,
-        useNativeDriver: true,
-      }),
-      Animated.timing(translateY, {
-        delay,
-        duration: 420,
-        toValue: 0,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [delay, opacity, translateY]);
-
   return (
-    <Animated.View
+    <View
       style={[
         styles.reveal,
         {
-          opacity,
-          transform: [{ translateY }],
-        },
+          animationKeyframes: {
+            "0%": { opacity: 0, transform: [{ translateY: 8 }] },
+            "100%": { opacity: 1, transform: [{ translateY: 0 }] },
+          },
+          animationDuration: "420ms",
+          animationDelay: `${delay}ms`,
+          animationTimingFunction: "ease-out",
+          animationFillMode: "both",
+        } as unknown as ViewStyle,
       ]}
     >
       {children}
-    </Animated.View>
+    </View>
   );
 }
 
