@@ -241,7 +241,7 @@ export const DATA: PortfolioData = {
     },
     {
       title: "MotoBills",
-      href: "http://apps.apple.com/us/app/motobills/id6747974149",
+      href: "https://apps.apple.com/us/app/motobills/id6747974149",
       description:
         "Fintech app for electricity bills, cable TV, and airtime/data top-ups, with biometric authentication and a secure transaction-history dashboard.",
       media:
@@ -259,8 +259,28 @@ export const DATA: PortfolioData = {
       links: [
         {
           label: "App Store",
-          url: "http://apps.apple.com/us/app/motobills/id6747974149",
+          url: "https://apps.apple.com/us/app/motobills/id6747974149",
         },
+      ],
+    },
+    {
+      title: "MotoBites",
+      href: "https://play.google.com/store/apps/details?id=com.motobites",
+      description:
+        "Food-delivery app where customers browse kitchens, order meals, track delivery in real time, and manage wallets and rewards. Live on Google Play.",
+      media:
+        "https://play-lh.googleusercontent.com/-IbdtwN09iixcENbshURZyBh2cs3Z4WJ-PYHFZGnH3GMQEGAqCsZR7FXQlZ7BqK-RVEqZ5pjsaWRzgWi1A0_=w480",
+      kind: "first-party",
+      role: "Software Engineer, Mobile",
+      architecture:
+        "Flutter customer app on a clean-architecture, Riverpod-based foundation with staging/production flavors, group-order support, wallet and rewards, real-time delivery tracking, and CI-signed Android/iOS releases.",
+      techStack: ["Flutter", "Riverpod", "GitHub Actions"],
+      highlights: [
+        "Built kitchen browsing, cart, checkout, and real-time delivery tracking",
+        "Implemented in-app wallet, rewards, and group-order flows",
+        "Shipped multi-flavor builds (staging/production) with CI-signed releases",
+      ],
+      links: [
         {
           label: "Google Play",
           url: "https://play.google.com/store/apps/details?id=com.motobites",
@@ -422,6 +442,88 @@ export const DATA: PortfolioData = {
         "Contributor to FastLED, a widely used C++ LED-animation library for embedded systems.",
       media: "https://opengraph.githubassets.com/1/FastLED/FastLED",
       links: [{ label: "Source", url: "https://github.com/FastLED/FastLED" }],
+    },
+  ],
+  showcase: [
+    {
+      title: "Trippicker",
+      tagline: "Web3 ride-hailing",
+      description:
+        "A Web3 ride-hailing app with real-time GPS tracking, fare estimation, in-app payments, and driver-passenger matching, plus an on-chain rewards layer that pays riders for completed trips. Live on the App Store.",
+      href: "https://apps.apple.com/us/app/trippicker-web3-mobility/id6748451455",
+      aspectRatio: 0.4614,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8f/ae/6c/8fae6c2c-27df-54c4-d2e1-2f437830468a/Rider_1.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9f/14/b6/9f14b6ba-18ea-992a-fce3-5296b693cc33/Rider_2.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/86/86/bf8686c6-0a1e-1203-3ffb-8ee7cdcb500e/Rider_3.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fe/d0/c6/fed0c6a4-285e-8a5e-2c5e-3bdb15ce453b/Rider_4.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9b/c6/12/9bc6122a-21c7-d5c1-8426-e9bfff9d8813/Rider_5.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9f/09/7b/9f097bbf-de6c-02ed-4fd6-878bd037cf12/Rider_6.png/460x0w.jpg",
+      ],
+    },
+    {
+      title: "Carbon-Adjust",
+      tagline: "Real-time energy marketplace",
+      description:
+        "An offline-first Flutter app that connects households and businesses to real-time grid-balancing opportunities, with IoT device registration, an energy marketplace, and low-bandwidth-friendly sync.",
+      href: "https://play.google.com/store/apps/details?id=com.carbonadjust.mobile",
+      aspectRatio: 0.5625,
+      screenshots: [
+        "https://play-lh.googleusercontent.com/8ClXgcDKxJ2G6BfEJDye8VRlzAVpcnD3CHC6fLsdJ2jHiCD9nel3rKJza0jfGglOCyo8N46CmgeAubCd4zAWY1s=w480",
+        "https://play-lh.googleusercontent.com/Mzue5927f5kuV0-SW59D-YCeaYpJA9B7ndw6mhGm9tidrrPA143NsTluoMWO9dldxcPtHAU0BUNLqB3Q18geG04=w480",
+        "https://play-lh.googleusercontent.com/RrFHoaDRc0x9Y2qbLqvuPOegcVy5ZaD7v5lvKBt6nswVfZkyYVPkLr9Ol3dXoHLkYh8iU0B8ziKbIf3ItnbGPQ=w480",
+        "https://play-lh.googleusercontent.com/WYFxdsJAqFJq7LgqL7n05AXziTJJOTx4InkejC2K0NFPzmdbIib6YNxA7MHYOA7IsrapvhhK0PEhkHXnt3uQXA4=w480",
+        "https://play-lh.googleusercontent.com/YChXtnu-_pbuTwfucaDX9RCCUhe6W3b4h3_kAhygQbD3msoGYnFVlXWeABYX6Sej38IKzYHdfPvpNXU7PQjOfrY=w480",
+        "https://play-lh.googleusercontent.com/kkctSjbLwZ9hoHRD5Z8J2xhnjSf1yohTb599VftjPLf3NlFGxOPv6ECkWn0VHPdknVpjulh1LZyVGShRb1Q8=w480",
+      ],
+    },
+    {
+      title: "MotoBills",
+      tagline: "Utility-payments fintech",
+      description:
+        "A fintech app for airtime, data, electricity, cable TV, and bill payments, with biometric authentication, a secure wallet, and a real-time transaction-history dashboard. Live on the App Store.",
+      href: "https://apps.apple.com/us/app/motobills/id6747974149",
+      aspectRatio: 0.4614,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2c/68/17/2c681763-cdd2-6ff7-8bd9-e3af1793478d/IMG_2349.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ef/03/4e/ef034e50-5c43-fa9e-c53a-d41603d7e256/IMG_2350.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4f/7b/11/4f7b11ce-e5f6-b083-756e-06b4e832749c/IMG_2351.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6d/82/0b/6d820bee-aac5-60b8-2c0b-68f4c3c0cca2/IMG_2353.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ce/e6/b8/cee6b863-ec1d-36ab-a2ac-defdea439ef6/IMG_2354.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cc/7b/bf/cc7bbf8e-1ce9-7193-ce18-c041c79e53ed/IMG_2355.png/460x0w.jpg",
+      ],
+    },
+    {
+      title: "MotoBites",
+      tagline: "Food delivery, end to end",
+      description:
+        "A Flutter food-delivery app where customers browse kitchens, order meals, track delivery in real time, and manage in-app wallets and rewards. Live on Google Play with multi-flavor, CI-signed releases.",
+      href: "https://play.google.com/store/apps/details?id=com.motobites",
+      aspectRatio: 0.4615,
+      screenshots: [
+        "https://play-lh.googleusercontent.com/5_NxlptanEf1tdqsW782-oDe-Ap9utB0QyRY3RKWyp3q73v4uJCrBPnhGb1_KykvplEn611PWYlbtOkIPFv2Jg=w480",
+        "https://play-lh.googleusercontent.com/GuHhVVsIPF4VaYu26L06c1PnnlV-UeWVYMfbFkxYDya4yBbOz6YSaN2uSdSBHK_74qle2suWe3T9r15sMNYAVQ=w480",
+        "https://play-lh.googleusercontent.com/OkQmhn21Mibv9DCDass9EV1tYRVuHXsKbfKx4pKKuNmoTvd1qSe8Pd5nhSogtNJOsE-ukFGNLblzAr0xlhkOTKY=w480",
+        "https://play-lh.googleusercontent.com/h4k9ZF0ogbQ5aHsd392r-By15p2TZqPIJjkrOsyo4lWUhDxEvwOiRtCnfOLeFVTGckvzO0rkgH8oo5WTA9sM6g=w480",
+        "https://play-lh.googleusercontent.com/jHZZOpTuVesbFbp3sxBIcMpqaVlzz3zvc1mvLgResdAdib6wONEFRuRHj3Q8YD0tQAFVRaM0L7TY4_17wouS=w480",
+        "https://play-lh.googleusercontent.com/pjHvDl9n82H1kSoUShJZjOdhNOwU8O8WRRyDV4K8RcI5vAv0IXW3zlzdblKtIL3ltmAVSRZUIEMguSTSWJwSP60=w480",
+      ],
+    },
+    {
+      title: "Plenti Nigeria",
+      tagline: "Everyday e-commerce",
+      description:
+        "A Flutter e-commerce app for everyday food and household products, with product discovery, category browsing, deals, and a streamlined checkout. Live on the App Store.",
+      href: "https://apps.apple.com/us/app/plenti-nigeria/id6759972919",
+      aspectRatio: 0.4614,
+      screenshots: [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0c/5b/03/0c5b0393-81e7-09ac-fa4e-f5fcf4db5eaa/9.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/92/c8/06/92c8069e-a85c-5bbc-e68f-10a4971175eb/10.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3a/d7/49/3ad749c8-acdc-1b08-3f18-b2dda29995f0/11.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/23/e3/24/23e32420-67d2-58e7-2766-8a0f99e98378/12.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c9/3d/45/c93d4577-4e29-49bd-b3b1-90147710cabb/13.png/460x0w.jpg",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/97/8f/03/978f03e5-5820-5180-470a-9819caa5b457/14.png/460x0w.jpg",
+      ],
     },
   ],
 };

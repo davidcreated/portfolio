@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-native";
 
 import { AboutText } from "./src/native/components/AboutText";
+import { AppShowcase } from "./src/native/components/AppShowcase";
 import { ContactLinks } from "./src/native/components/ContactLinks";
 import { CursorDot } from "./src/native/components/CursorDot";
 import { Dock } from "./src/native/components/Dock";
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "work-experience", label: "Experience" },
   { id: "skills", label: "Skills" },
+  { id: "app-showcase", label: "Apps" },
   { id: "projects", label: "Projects" },
   { id: "start-a-project", label: "Start a Project" },
   { id: "contact", label: "Contact" },
@@ -81,6 +83,11 @@ export default function App() {
           <Reveal delay={360}>
             <Section title="Skills">
               <SkillList items={DATA.skills} />
+            </Section>
+          </Reveal>
+          <Reveal delay={400}>
+            <Section title="App Showcase">
+              <AppShowcase items={DATA.showcase} />
             </Section>
           </Reveal>
           <Reveal delay={440}>

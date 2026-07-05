@@ -41,6 +41,15 @@ export type ProjectItem = {
   title: string;
 };
 
+export type ShowcaseItem = {
+  aspectRatio: number;
+  description: string;
+  href: string;
+  screenshots: string[];
+  tagline: string;
+  title: string;
+};
+
 export type PortfolioData = {
   avatar: ImageSource;
   contact: ContactItem[];
@@ -52,6 +61,7 @@ export type PortfolioData = {
   navbar: ContactItem[];
   projects: ProjectItem[];
   resumeUrl: string;
+  showcase: ShowcaseItem[];
   skills: string[];
   summary: string;
   work: WorkItem[];
