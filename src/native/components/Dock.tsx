@@ -137,6 +137,10 @@ function DockIcon({ label }: DockIconProps) {
     return <Feather color={colors.muted} name="mail" size={22} />;
   }
 
+  if (label === "WhatsApp") {
+    return <FontAwesome color={colors.muted} name="whatsapp" size={24} />;
+  }
+
   return <Feather color={colors.muted} name="globe" size={22} />;
 }
 

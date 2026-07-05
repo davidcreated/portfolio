@@ -1,3 +1,4 @@
+import Head from "expo-router/head";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-native";
@@ -13,6 +14,7 @@ import { ProjectList } from "./src/native/components/ProjectList";
 import { Reveal } from "./src/native/components/Reveal";
 import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
+import { StartProject } from "./src/native/components/StartProject";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { TopNav } from "./src/native/components/TopNav";
 import { DATA } from "./src/native/data";
@@ -24,6 +26,7 @@ const NAV_ITEMS = [
   { id: "work-experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "start-a-project", label: "Start a Project" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -33,6 +36,18 @@ export default function App() {
 
   return (
     <SafeAreaView style={[styles.safeArea, themeVariables]}>
+      <Head>
+        <title>David-Paul Folorunsho-Roberts · Software Engineer</title>
+        <meta
+          name="description"
+          content="Software Engineer · Mobile & Backend. 6+ years shipping production apps across fintech, health tech, e-commerce, and energy/IoT."
+        />
+        <meta property="og:title" content="David-Paul Folorunsho-Roberts · Software Engineer" />
+        <meta
+          property="og:description"
+          content="Software Engineer · Mobile & Backend. 6+ years shipping production apps across fintech, health tech, e-commerce, and energy/IoT."
+        />
+      </Head>
       <StatusBar style="light" />
       <GlowBackground />
       <BackgroundGrid />
@@ -72,6 +87,11 @@ export default function App() {
             <ProjectList items={DATA.projects} onSelectProject={setSelectedProject} />
           </Reveal>
           <Reveal delay={520}>
+            <Section title="Start a Project">
+              <StartProject />
+            </Section>
+          </Reveal>
+          <Reveal delay={600}>
             <ContactLinks items={DATA.contact} />
           </Reveal>
         </View>

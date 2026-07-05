@@ -51,6 +51,11 @@ export const DATA: PortfolioData = {
       label: "Email",
       url: "mailto:timifroberts@gmail.com?subject=Hello%20from%20your%20portfolio",
     },
+    {
+      display: "+234 803 565 1233",
+      label: "WhatsApp",
+      url: "https://wa.me/2348035651233",
+    },
   ],
   navbar: [
     { label: "Home", url: "/" },
@@ -60,6 +65,7 @@ export const DATA: PortfolioData = {
       url: "https://www.linkedin.com/in/david-paul-f-198650214",
     },
     { label: "Email", url: "mailto:timifroberts@gmail.com" },
+    { label: "WhatsApp", url: "https://wa.me/2348035651233" },
   ],
   work: [
     {
