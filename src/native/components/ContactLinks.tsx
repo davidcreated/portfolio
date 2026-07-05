@@ -49,9 +49,10 @@ function GridPattern() {
 const styles = StyleSheet.create({
   card: {
     alignItems: "center",
-    borderColor: colors.border,
+    borderColor: colors.blue,
     borderRadius: radii.lg,
     borderWidth: 1,
+    boxShadow: "0 0 60px rgba(96, 165, 250, 0.15)",
     overflow: "hidden",
     padding: 40,
     position: "relative",
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     width: 12,
   },
   pill: {
-    backgroundColor: colors.foreground,
+    backgroundColor: colors.blue,
     borderRadius: radii.md,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
@@ -80,10 +81,10 @@ const styles = StyleSheet.create({
     top: -1,
   },
   pillText: {
-    color: colors.card,
+    color: colors.background,
     fontFamily: fonts.body,
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: "700",
   },
   copy: {
     alignItems: "center",

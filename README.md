@@ -1,6 +1,6 @@
-# Ileri Portfolio
+# David-Paul Folorunsho-Roberts Portfolio
 
-Expo web portfolio for Ileri.
+Expo web portfolio for David-Paul Folorunsho-Roberts.
 
 ## Getting Started
 

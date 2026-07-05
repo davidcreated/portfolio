@@ -1,240 +1,300 @@
 import { PortfolioData } from "./types";
 
-const avatar =
-  "https://wadcvkjzukjklhqbfvgz.supabase.co/storage/v1/object/public/avatars/cmi1fiqdv0000l70465x3ok9l/409a7b02-32bd-431f-a4b9-27297ed67ee9";
+const avatar = "https://github.com/davidcreated.png";
 
 export const DATA: PortfolioData = {
-  name: "Ileri⚡️",
-  headline: "Ileri⚡️ - Software Engineer",
-  description: "Software Engineer",
-  location: "Nigeria",
+  name: "David-Paul Folorunsho-Roberts",
+  headline: "David-Paul Folorunsho-Roberts - Software Engineer",
+  description: "Software Engineer · Mobile & Backend",
+  location: "Nigeria (Open to Remote)",
   avatar: { uri: avatar },
   resumeUrl:
-    "https://drive.google.com/file/d/1hGJiT7lqBW-gFyNMX-PwNRL2o6Y0sRbV/view?usp=sharing",
+    "https://drive.google.com/file/d/1CVzdThqP2sIT4ceZe4NXH6SarOyktBh5/view?usp=drive_link",
   summary:
-    "Self-taught fullstack software engineer with 6 years building scalable backend systems and cloud infrastructure. I work with React, TypeScript, Go, and PHP to architect microservices, manage monorepos, and design event-driven platforms.\n\nI have most experience in building cloud platforms, financial systems, Artificial intelligence and a few SAAS solutions.",
+    "Software Engineer with 6+ years building scalable, high-performance mobile and backend systems across fintech, telehealth, e-commerce, IoT, and logistics. Specializes in cross-platform and native mobile development (Flutter, Swift, Kotlin) backed by Go microservices and real-time, offline-first architectures.\n\nHas shipped production apps serving 20,000+ active users, led engineering teams, and championed clean-architecture and CI/CD practices.",
   skills: [
-    "AWS",
-    "Typescript",
-    "React/NextJs",
-    "Golang",
-    "Docker",
-    "Kubernetes",
-    "Hashicorp Nomad",
-    "Linux",
-    "Docker",
-    "PHP",
-    "Grpc",
+    "Flutter",
+    "React Native",
+    "Swift / SwiftUI",
+    "Kotlin",
+    "Go (Golang)",
+    "TypeScript",
+    "Node.js / Next.js",
     "GraphQL",
-    "RabbitMQ",
-    "SQL",
-    "Distributed systems",
+    "WebSockets / MQTT",
+    "PostgreSQL",
+    "Firebase",
+    "SQLite / Hive",
+    "Clean Architecture",
+    "Riverpod / BLoC",
+    "CI/CD (Fastlane, Codemagic, GitHub Actions)",
   ],
-  hobbies: [
-    "Gaming",
-    "Playing Chess",
-    "Watching Lots of Movies",
-    "Documentaries",
-    "Hanging Out",
-    "Watching soccer / Playing (Once in a while)",
-  ],
+  hobbies: ["Reading", "Exploring new tech", "Gaming", "Watching football"],
   contact: [
     {
-      display: "@pipe_dev",
-      label: "Twitter",
-      url: "https://x.com/pipe_dev",
+      display: "davidcreated",
+      label: "GitHub",
+      url: "https://github.com/davidcreated",
     },
     {
-      display: "ileri.engineering@gmail.com",
+      display: "david-paul-f-198650214",
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/david-paul-f-198650214",
+    },
+    {
+      display: "timifroberts@gmail.com",
       label: "Email",
-      url: "mailto:ileri.engineering@gmail.com",
-    },
-    {
-      display: "Ileri⚡️",
-      label: "Portfolio Page",
-      url: "https://ileri.brimble.app",
+      url: "mailto:timifroberts@gmail.com",
     },
   ],
   navbar: [
     { label: "Home", url: "/" },
-    { label: "Twitter", url: "https://x.com/pipe_dev" },
-    { label: "Email", url: "mailto:ileri.engineering@gmail.com" },
-    { label: "Portfolio", url: "https://ileri.brimble.app" },
+    { label: "GitHub", url: "https://github.com/davidcreated" },
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/david-paul-f-198650214",
+    },
+    { label: "Email", url: "mailto:timifroberts@gmail.com" },
   ],
   work: [
     {
-      company: "Piggyvest",
-      description: "Backend Engineer (Contract) · Nigeria (Remote)",
-      employmentType: "Contract",
+      company: "Escrow-Tech (Carbon-Adjust®)",
+      description:
+        "Lead architecture of an offline-first Flutter app for the Carbon-Adjust® Clearing Platform, a real-time energy marketplace connecting households and businesses to grid-balancing opportunities. Engineered resilient real-time communication with WebSockets and MQTT, optimized for low-bandwidth and unstable 2G/3G networks, and integrated IoT device registration and energy-flexibility scheduling. Implemented offline-first persistence with SQLite and Hive, including background sync, conflict resolution, and reconciliation on reconnect, with state managed via Riverpod and BLoC. Built secure API layers with Dio (token refresh, retry, failure handling) and owned CI/CD across Fastlane, Codemagic, and GitHub Actions.",
+      employmentType: "Full-time",
+      location: "United Kingdom",
+      locationType: "Remote",
+      logoText: "CA",
+      role: "Software Engineer, Mobile",
+      url: "",
+    },
+    {
+      company: "Icheta",
+      description:
+        "Led development of a next-generation social-commerce platform combining e-commerce, real-time interaction, and AI-driven shopping, built with React Native and Go. Integrated AI features such as personalized recommendations, smart search, and voice interactions localized for Igbo, Hausa, Yoruba, and Pidgin, alongside AR-based product previews. Designed high-performance API integrations optimized for low-bandwidth devices, cutting load times and data consumption while lifting engagement, on a modular clean-architecture codebase.",
+      employmentType: "Full-time",
+      location: "Lagos, Nigeria",
+      locationType: "Remote",
+      logoText: "IC",
+      role: "Software Engineer, Mobile & Backend",
+      url: "",
+    },
+    {
+      company: "Sujimoto Group",
+      description:
+        "Led mobile engineering for MotoBills and MotoPay (bill-payment and merchant fintech) and Plenti (e-commerce), shipping production-grade Flutter applications. Architected secure wallet, transaction, and payment pipelines integrated with Java, PHP, and Laravel backends, and built real-time transaction monitoring, webhook handling, and error-recovery systems. Integrated third-party payments, KYC identity verification, notifications, and analytics, achieving high crash-free rates and production stability for financial operations.",
+      employmentType: "Full-time",
+      location: "Lagos, Nigeria",
+      locationType: "Remote",
+      logoText: "SJ",
+      role: "Software Engineer, Mobile",
+      url: "",
+    },
+    {
+      company: "Healio",
+      description:
+        "Led end-to-end React Native development of a telemedicine platform spanning teleconsultation booking, e-prescriptions, lab management, medication scheduling, and IoT health-device integration. Built secure infrastructure with Firebase and RESTful APIs covering authentication, role-based access control, and encrypted data flows, meeting healthcare-grade security standards. Designed a modular, scalable architecture and optimized real-time synchronization between mobile, backend, and IoT devices.",
+      employmentType: "Full-time",
+      location: "Thorofare, New Jersey, USA",
+      locationType: "Remote",
+      logoText: "HE",
+      role: "Software Engineer, Mobile",
+      url: "",
+    },
+    {
+      company: "NexaHealth",
+      description:
+        "Architected and led mobile engineering for an enterprise real-time teleconsultation platform using Swift and Go, supporting 20,000+ active users. Integrated IoT health-tracking with secure PostgreSQL databases and built real-time video-consultation workflows between clinicians and patients. Implemented CI/CD via GitHub Actions and Firebase App Distribution, reducing deployment time by 40% and sustaining a 99.5% crash-free rate and 4.7+ App Store rating.",
+      employmentType: "Full-time",
       location: "Nigeria",
       locationType: "Remote",
-      logoText: "PV",
-      role: "Backend Engineer",
-      url: "https://piggyvest.com",
+      logoText: "NH",
+      role: "Software Engineer, Mobile & Backend",
+      url: "",
     },
     {
-      company: "Ultramarkets",
-      description: "Fullstack Engineer (Full-time) · Singapore (Remote)",
+      company: "Respawn Technologies",
+      description:
+        "Built and shipped 8+ cross-platform applications (Swift, Go, MongoDB) plus backend services supporting high-concurrency, real-time interactions. Co-developed a proprietary analytics SDK adopted across 5 production projects, improving user engagement by 35%, and delivered push-notification systems for tournaments, live events, and social features.",
       employmentType: "Full-time",
-      location: "Singapore",
+      location: "Lagos, Nigeria",
       locationType: "Remote",
-      logoText: "UM",
-      role: "Fullstack Engineer",
-      url: "https://ultramarkets.xyz",
+      logoText: "RT",
+      role: "Software Engineer, Mobile",
+      url: "",
     },
     {
-      company: "Brimble",
-      description: "Founding & Infrastructure Engineer (Full-time) · United States (Remote)",
+      company: "Andela",
+      description:
+        "Built scalable Kotlin and Swift modules for U.S. and European clients across fintech, logistics, and enterprise products, integrating complex REST APIs and PostgreSQL. Delivered feature-complete releases 30% faster through agile delivery, clean architecture, and CI/CD pipelines with globally distributed teams.",
       employmentType: "Full-time",
       location: "United States",
       locationType: "Remote",
-      logoText: "BR",
-      role: "Founding & Infrastructure Engineer",
-      url: "https://brimble.io",
-    },
-    {
-      company: "Novis A.I",
-      description: "Software Engineer (Contract) · United Kingdom (Remote)",
-      employmentType: "Contract",
-      location: "United Kingdom",
-      locationType: "Remote",
-      logoText: "AI",
-      role: "Software Engineer",
-      url: "https://novis.ai",
-    },
-    {
-      company: "9jaPay",
-      description: "Backend Engineer (Full-time) · United Kingdom (Hybrid)",
-      employmentType: "Full-time",
-      location: "United Kingdom",
-      locationType: "Hybrid",
-      logoText: "9P",
-      role: "Backend Engineer",
-      url: "https://9japay.com",
-    },
-    {
-      company: "Ebhidhaa",
-      description: "Backend Engineer (Full-time) · Nigeria (Remote)",
-      employmentType: "Full-time",
-      location: "Nigeria",
-      locationType: "Remote",
-      logoText: "EB",
-      role: "Backend Engineer",
-      url: "",
-    },
-    {
-      company: "AbangoHQ",
-      description: "Fullstack Engineer (Contract) · Nigeria (Remote)",
-      employmentType: "Contract",
-      location: "Nigeria",
-      locationType: "Remote",
-      logoText: "AH",
-      role: "Fullstack Engineer",
-      url: "",
+      logoText: "AN",
+      role: "Software Engineer, Mobile",
+      url: "https://andela.com",
     },
   ],
   education: [
     {
-      degree: "BSc Computer Science",
-      period: "",
+      degree: "M.Sc. Software Engineering (in progress)",
+      period: "2026 - Present",
+      school: "Miva University",
+      url: "",
+    },
+    {
+      degree: "Postgraduate Diploma, Software Engineering",
+      period: "2024 - 2025",
+      school: "University of Uyo",
+      url: "",
+    },
+    {
+      degree: "B.Sc. Agriculture",
+      period: "2019 - 2024",
       school: "Landmark University",
       url: "https://lmu.edu.ng",
     },
   ],
   projects: [
     {
-      title: "Brimble",
-      href: "https://brimble.io/",
+      title: "TripAdvisor",
+      href: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",
       description:
-        "Brimble is a platform as a service solution, for developers and small engineering teams to deploy their frontend application effortlessly and no downtime 🙃",
+        "Contributed to TripAdvisor, a global travel discovery and booking platform.",
       media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/dWtN53rsC42zoJZaJJfjng/YSFmEz0VMu5W0JiVy2CwXESnw2PZvHPqMUE7vsNVgSEzaBXOgeu_BZqcb8j7bAcDopjQkkxVrMJHVcS6fnBXfz90nmjV6SK8hSkqSQJqWsfBPPZJl0kEBgUBmjKA5fN87_T2v_QK6N5AKCU-PB71og/0eCQYZAGqXbjZU90M59SPZapLkGw8WwWQSNPl8K96yw",
-      links: [{ label: "Website", url: "https://brimble.io/" }],
-    },
-    {
-      title: "Koyn",
-      href: "https://www.getkoyn.com/",
-      description:
-        "Koyn is a crypto trading platform, it allows you sell, buy crypto and finally pay bills",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/da-SywiX4ISKOplwuXJ7sA/rRBqq3rDTPP0bhLM6dbAuquO3XjDnW-N4bnq_8tmCqKrwA7Y2Ih-k_dQHg2ZZSOaE5QYrQxNN81hEJtnuHf8RcM_OZ67gLeRpxGI89juHNZbpLLzYLI-yVsWnDJboRc0GNY0zBto7vASqSaIurOaHCXjbjNUxgjAqJwkbOsHslKzvR3hvga92duZu0Tk0L1N/uVWA2Z3mIBWcHFg1AC5EYI0IIv82XbOsyCbg_auVAkk",
-      links: [{ label: "Website", url: "https://www.getkoyn.com/" }],
-    },
-    {
-      title: "Hermes",
-      href: "https://github.com/pipethedev/hermes",
-      description:
-        "A simple publisher and subscriber package using http as the underlying protocol",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/64IPXh_4BmwP3kka5VGhnQ/ME78yoYrCZrQ2Zo2A8uJxFt-qGGp2OtHLY2cVLb69dJvPZ3DLqZyNszVdL2N4HPcmrpTBXA7UjtAHmHxGQxeP_dOpSudFHhTmLiAwM6Cwdmko-twjODyfTDDNM2qSXZmnT81P3JMwOlXtEjK0VkJ1w/uml4Ch2jJ4mp3ZqMrvN2e5yok5J-XtULPDjO7AjENuI",
-      links: [{ label: "Source", url: "https://github.com/pipethedev/hermes" }],
-    },
-    {
-      title: "Cykmore",
-      href: "https://cykmore.com/",
-      description:
-        "Cykmore is a UK technology firm bringing, high quality, early-found candidates from an international marketplace to national hiring managers.",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/UU8f-aQW2Ns7a6qAJv0DqQ/HGFu0SOKeXGZ3bkDKwoVqUJyAiDo7MebiaI4SKkMYtEW2dBH5s12zZrmEcyJg9O7UYKg68x2P1Ijl8HGnwVVdaFHTCOkuCz-fcJicpov2RznQ7YSDpl_oTxtVRnzJekO553nhwFG671--onM0qgehtYoBfu-izwu_dKuaToD6ZM/t7mcw7gPCAs9icCKBaRZgJXwhNnZCWTZJxxlKuXoHeM",
-      links: [{ label: "Website", url: "https://cykmore.com/" }],
-    },
-    {
-      title: "Fastrack",
-      href: "https://getfastrack.app/",
-      description:
-        "Lead the backend team, to create a scalable backend solution for a logistics product",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/rIQtAf9rItlBw4z-ccm2UQ/nr3s8fTB5qgKhvusOFHwnHG4UFdTENv1na13_OkQtFp_2Wolc8dF7rm8T-dpjjiRCAVFzinUOFszYWWCY3Wfslw-k9ns2vtr1VUyL5kKt6qcEalWJQQ5dd-JDKZUpHs6fywtazgQ_s9wr109QgCIXw/N_2M_kjd7JCxzfO5g4Fki6rqFQh_yu9biHEDqg9GhtQ",
-      links: [{ label: "Website", url: "https://getfastrack.app/" }],
-    },
-    {
-      title: "Minimalist",
-      href: "https://minimalistlimited.com/",
-      description:
-        "Worked as a backend engineer on the product fulltime. Minimalist & Co Ltd is an excellence driven Real Estate development company driven by professionals with the sole aim of building grandeur and ultra-modern homes for professionals, business and upwardly mobile individuals, providing them a seamless living experience",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/NCmNld98WNk3BqS_j8Thug/Z_X_Ac7bhsLEm7LqT7C3o8jFTRz6PAtTP0k_ur-4cbFjZD9gUTNW_BeUK62obZvx4pAO7P-2tZX5DZk2xQANcggSAmXzkM41ba7Yc3UkG1gBk_HYWIwH7lXkvyDChNAQjb5SCx3LpPOCUu60bTIJtw/BjDeDG3UlV8N4ZSrukB9DoNa0TFYuLtZ2-cB-7cDfpk",
-      links: [{ label: "Website", url: "https://minimalistlimited.com/" }],
-    },
-    {
-      title: "Cookout",
-      href: "https://cookout.ng",
-      description:
-        "Cookout is an online food delivery platform tailored to users and businesses who like certain varieties of meal plans",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/5jfaXhkfRUDy3rMLoiYYvA/GFqiS61lGJuX-vKnS9asGA-7u-eN5lJdF7QzTPpUZyxaBwoFbNEcNS3vW2KQ2dkNxAR4CdDOTfg5dXL5JN6kbjBwnZoNMXcpO2Wki57jtINc3-V9bEdvSRk5XeaJQcBgRJEamJ2MiSCaRrGXu8y-yFbIyAHrVkpMOrTKh7dhoVHprTb0o5ZL9G27Pu3qBY3w/2VPfc68A249xyM_JCvogq2489pyUSv5qVDUnfrVUbxk",
-      links: [{ label: "Website", url: "https://cookout.ng" }],
-    },
-    {
-      title: "Lazerpay Laravel SDK",
-      href: "https://github.com/pipethedev/lazerpay-laravelsdk",
-      description: "Laravel sdk for lazerpay to use on a laravel project",
-      media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/64IPXh_4BmwP3kka5VGhnQ/ME78yoYrCZrQ2Zo2A8uJxFt-qGGp2OtHLY2cVLb69dJvPZ3DLqZyNszVdL2N4HPcmrpTBXA7UjtAHmHxGQxeP_dOpSudFHhTmLiAwM6Cwdmko-twjODyfTDDNM2qSXZmnT81P3JMwOlXtEjK0VkJ1w/uml4Ch2jJ4mp3ZqMrvN2e5yok5J-XtULPDjO7AjENuI",
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/03/0a/a6/030aa6d9-3ecd-1851-4171-6873c20e3a06/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
       links: [
         {
-          label: "Source",
-          url: "https://github.com/pipethedev/lazerpay-laravelsdk",
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",
         },
       ],
     },
     {
-      title: "Nywata",
-      href: "https://nyatwa.com/",
+      title: "MotoBills",
+      href: "http://apps.apple.com/us/app/motobills/id6747974149",
       description:
-        "Nyatwa is a fintech app that allows you move money, with a virtual card. Provided backend engineering services in laravel to the development of this product",
+        "Fintech app for electricity bills, cable TV, and airtime/data top-ups, with biometric authentication and a secure transaction-history dashboard.",
       media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/HQD8etorZprhlzJiWMELyQ/og63Mm9BZZuki-MPXlgQGvFnFUWmrIcjzSVDI_JyCry1stqGFHEpXjFUhKPn_lSv9Twx8vHfXMptQpAMITo9NFq1pMc0gOxohh7t4magfikLBqDPxpoH-pjoZO7cIftkRVJFxJYCGGm4VSB3s2V0ySgbG28kJnOg8qY6of4EWhEkHcJpAQ_mnSuVefn1yZUg/IRluXECiijJ8vMbruL5RqzNAjcwJ6SCMBbdP55vi4Y4",
-      links: [{ label: "Website", url: "https://nyatwa.com/" }],
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/48/5a/a5485a8f-991e-b830-6dbd-07ce8b00530a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      links: [
+        {
+          label: "App Store",
+          url: "http://apps.apple.com/us/app/motobills/id6747974149",
+        },
+        {
+          label: "Google Play",
+          url: "https://play.google.com/store/apps/details?id=com.motobites",
+        },
+      ],
     },
     {
-      title: "Couch",
-      href: "https://joincouch.co/",
+      title: "Plenti Nigeria",
+      href: "https://apps.apple.com/us/app/plenti-nigeria/id6759972919",
       description:
-        "Lead the team and also worked on the backend solution for couch. Couch is a mental health and therapy solution",
+        "E-commerce app shipped while leading mobile engineering at Sujimoto Group, built with production-grade Flutter.",
       media:
-        "https://v5.airtableusercontent.com/v3/u/54/54/1783072800000/w3LftyJIBe7OjLr-ZAS7Gg/PjDkZNmhHkrcEIym9dKtlta_V_3UuTbL_ljYCo8b31wS-Yux_kVk9Nu0zJmLVVgewSwGUjWS7fKvSRkqeBYt3kZ4cx5usN5sZQfzMZ84UsHKdT-ls9ZD_DNJjsyoEbSPO-NxlCFlqPNFTKvcjFrDgQ/hPX8XG7YLY2vNXmdaONlafJj6Tw4fS1sa45WkWwyom0",
-      links: [{ label: "Website", url: "https://joincouch.co/" }],
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/5c/cb/6d5ccb46-0f06-40be-55e6-8bfdbdecefb7/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      links: [
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/plenti-nigeria/id6759972919",
+        },
+      ],
+    },
+    {
+      title: "Navega · Rent Your Boat",
+      href: "https://apps.apple.com/us/app/navega-rent-your-boat/id6742487553",
+      description:
+        "Boat rental marketplace app connecting owners and renters, with booking and listing management.",
+      media:
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/fc/12/6bfc125a-f76d-44e2-4ea2-6293e785a02e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      links: [
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/navega-rent-your-boat/id6742487553",
+        },
+      ],
+    },
+    {
+      title: "AfroIntroductions",
+      href: "https://apps.apple.com/us/app/afrointroductions-afro-dating/id1597869513",
+      description:
+        "Afro dating platform connecting singles across the African diaspora.",
+      media:
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/41/5a/54415a07-f117-b988-6d6e-0e9ed5a917e2/AfroIntroductions-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      links: [
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/us/app/afrointroductions-afro-dating/id1597869513",
+        },
+      ],
+    },
+    {
+      title: "Respawn",
+      href: "https://play.google.com/store/apps/details?id=com.nek12.respawn&pcampaignid=web_share",
+      description:
+        "Cross-platform app built at Respawn Technologies, featuring push-notification systems for tournaments, live events, and social features.",
+      media:
+        "https://play-lh.googleusercontent.com/p8YsLjOC_WX9HnjPbngSIDYO7ixMDOIHb8SeMRpApPCHGLelWd-ppcTLk4h7ws2iRcqPigpGgIxaxb9PNMnmIGM",
+      links: [
+        {
+          label: "Google Play",
+          url: "https://play.google.com/store/apps/details?id=com.nek12.respawn&pcampaignid=web_share",
+        },
+      ],
+    },
+    {
+      title: "AI Calorie Tracker",
+      href: "https://github.com/davidcreated/AI-Powered-Calorie-Tracker-app.git",
+      description:
+        "Computer-vision nutrition app that estimates calories and macros from a food photo via an LLM pipeline, with local-first storage.",
+      media:
+        "https://opengraph.githubassets.com/1/davidcreated/AI-Powered-Calorie-Tracker-app",
+      links: [
+        {
+          label: "Source",
+          url: "https://github.com/davidcreated/AI-Powered-Calorie-Tracker-app.git",
+        },
+      ],
+    },
+    {
+      title: "Stellar Bridge Watch",
+      href: "https://github.com/davidcreated/Bridge-Watch.git",
+      description:
+        "Open-source monitoring platform for cross-chain asset bridges, DEX liquidity, and bridged asset health on the Stellar network, with real-time analytics and automated alerts.",
+      media: "https://opengraph.githubassets.com/1/davidcreated/Bridge-Watch",
+      links: [
+        { label: "Source", url: "https://github.com/davidcreated/Bridge-Watch.git" },
+      ],
+    },
+    {
+      title: "Healio",
+      href: "https://github.com/davidcreated/Healio-Private.git",
+      description:
+        "Telemedicine platform spanning teleconsultation booking, e-prescriptions, lab management, and IoT health-device integration, built at Healio.",
+      media: "https://opengraph.githubassets.com/1/davidcreated/Healio-Private",
+      links: [
+        { label: "Source", url: "https://github.com/davidcreated/Healio-Private.git" },
+      ],
+    },
+    {
+      title: "go-ethereum",
+      href: "https://github.com/ethereum/go-ethereum",
+      description:
+        "Contributor to Geth, the Go implementation of the Ethereum protocol.",
+      media: "https://opengraph.githubassets.com/1/ethereum/go-ethereum",
+      links: [
+        { label: "Source", url: "https://github.com/ethereum/go-ethereum" },
+      ],
+    },
+    {
+      title: "FastLED",
+      href: "https://github.com/FastLED/FastLED",
+      description:
+        "Contributor to FastLED, a widely used C++ LED-animation library for embedded systems.",
+      media: "https://opengraph.githubassets.com/1/FastLED/FastLED",
+      links: [{ label: "Source", url: "https://github.com/FastLED/FastLED" }],
     },
   ],
 };

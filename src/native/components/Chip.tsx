@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Pressable, StyleSheet, Text } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 
@@ -8,10 +9,18 @@ type ChipProps = {
 };
 
 export function Chip({ label, small = false }: ChipProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <View style={[styles.chip, small && styles.smallChip]}>
-      <Text style={[styles.label, small && styles.smallLabel]}>{label}</Text>
-    </View>
+    <Pressable
+      onHoverIn={() => setHovered(true)}
+      onHoverOut={() => setHovered(false)}
+      style={[styles.chip, small && styles.smallChip, hovered && styles.chipHovered]}
+    >
+      <Text style={[styles.label, small && styles.smallLabel, hovered && styles.labelHovered]}>
+        {label}
+      </Text>
+    </Pressable>
   );
 }
 
@@ -26,6 +35,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: spacing.md,
   },
+  chipHovered: {
+    borderColor: colors.blue,
+  },
   smallChip: {
     height: 24,
     paddingHorizontal: spacing.sm,
@@ -35,6 +47,9 @@ const styles = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 14,
     fontWeight: "500",
+  },
+  labelHovered: {
+    color: colors.blue,
   },
   smallLabel: {
     fontSize: 11,

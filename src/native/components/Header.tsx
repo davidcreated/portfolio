@@ -13,20 +13,21 @@ import { ExternalPressable } from "./ExternalPressable";
 type HeaderProps = {
   avatar: ImageSource;
   description: string;
-  headline: string;
   location: string;
+  name: string;
   resumeUrl: string;
 };
 
 export function Header({
   avatar,
   description,
-  headline,
   location,
+  name,
   resumeUrl,
 }: HeaderProps) {
   const { width } = useWindowDimensions();
   const isStacked = width < 1100;
+  const firstName = name.split(" ")[0];
 
   return (
     <View style={[styles.container, isStacked && styles.stackedContainer]}>
@@ -35,14 +36,16 @@ export function Header({
       ) : null}
       <View style={styles.copy}>
         <Text style={[styles.title, isStacked && styles.stackedTitle]}>
-          {headline}
+          Hi, I&apos;m <Text style={styles.accentName}>{firstName}</Text> 👋
         </Text>
         <Text style={styles.description}>
           {description}
           <Text style={styles.location}> {location}</Text>
         </Text>
         <ExternalPressable url={resumeUrl}>
-          <Text style={styles.resume}>Download my resume</Text>
+          <View style={styles.resumeButton}>
+            <Text style={styles.resumeButtonText}>Download my resume</Text>
+          </View>
         </ExternalPressable>
       </View>
       {!isStacked ? (
@@ -91,20 +94,28 @@ const styles = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 16,
   },
-  resume: {
+  accentName: {
+    color: colors.blue,
+  },
+  resumeButton: {
     alignSelf: "flex-start",
-    color: colors.foreground,
+    backgroundColor: colors.blue,
+    borderRadius: 999,
+    marginTop: spacing.xs,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+  },
+  resumeButtonText: {
+    color: colors.background,
     fontFamily: fonts.body,
     fontSize: 14,
-    fontWeight: "600",
-    textDecorationColor: colors.foreground,
-    textDecorationLine: "underline",
+    fontWeight: "700",
   },
   avatar: {
-    borderColor: colors.border,
+    borderColor: colors.blue,
     borderRadius: 64,
-    borderWidth: 1,
-    boxShadow: "0 16px 30px rgba(10, 10, 10, 0.12)",
+    borderWidth: 2,
+    boxShadow: `0 0 40px ${colors.blue}`,
     height: 96,
     width: 96,
   },

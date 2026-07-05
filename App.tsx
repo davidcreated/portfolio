@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-native";
 
 import { AboutText } from "./src/native/components/AboutText";
@@ -13,11 +12,10 @@ import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { DATA } from "./src/native/data";
-import { colors, darkTheme, lightTheme, spacing } from "./src/native/styles";
+import { colors, darkTheme, spacing } from "./src/native/styles";
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const theme = isDark ? darkTheme : lightTheme;
+  const theme = darkTheme;
   const themeVariables = {
     "--color-background": theme.background,
     "--color-card": theme.card,
@@ -32,7 +30,8 @@ export default function App() {
 
   return (
     <SafeAreaView style={[styles.safeArea, themeVariables]}>
-      <StatusBar style={isDark ? "light" : "dark"} />
+      <StatusBar style="light" />
+      <GlowBackground />
       <BackgroundGrid />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.page}>
@@ -40,8 +39,8 @@ export default function App() {
             <Header
               avatar={DATA.avatar}
               description={DATA.description}
-              headline={DATA.headline}
               location={DATA.location}
+              name={DATA.name}
               resumeUrl={DATA.resumeUrl}
             />
           </Reveal>
@@ -78,12 +77,17 @@ export default function App() {
           </Reveal>
         </View>
       </ScrollView>
-      <Dock
-        isDark={isDark}
-        items={DATA.navbar}
-        onToggleTheme={() => setIsDark((current) => !current)}
-      />
+      <Dock items={DATA.navbar} />
     </SafeAreaView>
+  );
+}
+
+function GlowBackground() {
+  return (
+    <View pointerEvents="none" style={styles.glowWrapper}>
+      <View style={[styles.glowBlob, styles.glowBlobPrimary]} />
+      <View style={[styles.glowBlob, styles.glowBlobSecondary]} />
+    </View>
   );
 }
 
@@ -135,5 +139,35 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     height: 12,
     width: 12,
+  },
+  glowWrapper: {
+    height: 900,
+    left: 0,
+    overflow: "hidden",
+    position: "absolute",
+    right: 0,
+    top: 0,
+    zIndex: 0,
+  },
+  glowBlob: {
+    borderRadius: 999,
+    filter: "blur(140px)",
+    position: "absolute",
+  } as ViewStyle,
+  glowBlobPrimary: {
+    backgroundColor: colors.blue,
+    height: 560,
+    opacity: 0.35,
+    right: -160,
+    top: -220,
+    width: 560,
+  },
+  glowBlobSecondary: {
+    backgroundColor: colors.blue,
+    height: 420,
+    left: -200,
+    opacity: 0.16,
+    top: 120,
+    width: 420,
   },
 });

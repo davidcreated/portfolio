@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, LayoutChangeEvent, StyleSheet, Text, View } from "react-native";
+import { Image, LayoutChangeEvent, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 import { ProjectItem } from "../types";
@@ -26,46 +26,64 @@ export function ProjectList({ items }: ProjectListProps) {
       />
       <View onLayout={updateGridWidth} style={styles.grid}>
         {items.map((item) => (
-          <View
-            key={item.title}
-            style={[styles.card, isTwoColumn ? styles.twoColumnCard : styles.fullCard]}
-          >
-            <ExternalPressable url={item.href}>
-              <View style={styles.media}>
-                {item.media ? (
-                  <Image
-                    accessibilityIgnoresInvertColors
-                    resizeMode="cover"
-                    source={{ uri: item.media }}
-                    style={styles.mediaImage}
-                  />
-                ) : (
-                  <Text style={styles.mediaText}>{item.title}</Text>
-                )}
-              </View>
-            </ExternalPressable>
-            <View style={styles.body}>
-              <View style={styles.cardHeader}>
-                <View style={styles.cardTitleGroup}>
-                  <Text style={styles.cardTitle}>{item.title}</Text>
-                </View>
-                <ExternalPressable url={item.href}>
-                  <Text style={styles.arrow}>↗</Text>
-                </ExternalPressable>
-              </View>
-              <Text style={styles.description}>{item.description}</Text>
-              <View style={styles.links}>
-                {item.links.map((link) => (
-                  <ExternalPressable key={`${item.title}-${link.label}`} url={link.url}>
-                    <Text style={styles.link}>{link.label}</Text>
-                  </ExternalPressable>
-                ))}
-              </View>
-            </View>
-          </View>
+          <ProjectCard isTwoColumn={isTwoColumn} item={item} key={item.title} />
         ))}
       </View>
     </View>
+  );
+}
+
+type ProjectCardProps = {
+  isTwoColumn: boolean;
+  item: ProjectItem;
+};
+
+function ProjectCard({ isTwoColumn, item }: ProjectCardProps) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Pressable
+      onHoverIn={() => setHovered(true)}
+      onHoverOut={() => setHovered(false)}
+      style={[
+        styles.card,
+        isTwoColumn ? styles.twoColumnCard : styles.fullCard,
+        hovered && styles.cardHovered,
+      ]}
+    >
+      <ExternalPressable url={item.href}>
+        <View style={styles.media}>
+          {item.media ? (
+            <Image
+              accessibilityIgnoresInvertColors
+              resizeMode="cover"
+              source={{ uri: item.media }}
+              style={styles.mediaImage}
+            />
+          ) : (
+            <Text style={styles.mediaText}>{item.title}</Text>
+          )}
+        </View>
+      </ExternalPressable>
+      <View style={styles.body}>
+        <View style={styles.cardHeader}>
+          <View style={styles.cardTitleGroup}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+          </View>
+          <ExternalPressable url={item.href}>
+            <Text style={[styles.arrow, hovered && styles.arrowHovered]}>↗</Text>
+          </ExternalPressable>
+        </View>
+        <Text style={styles.description}>{item.description}</Text>
+        <View style={styles.links}>
+          {item.links.map((link) => (
+            <ExternalPressable key={`${item.title}-${link.label}`} url={link.url}>
+              <Text style={styles.link}>{link.label}</Text>
+            </ExternalPressable>
+          ))}
+        </View>
+      </View>
+    </Pressable>
   );
 }
 
@@ -110,18 +128,18 @@ const styles = StyleSheet.create({
     height: 1,
   },
   eyebrowPill: {
-    backgroundColor: colors.foreground,
-    borderColor: colors.border,
+    backgroundColor: colors.blue,
+    borderColor: colors.blue,
     borderRadius: radii.md,
     borderWidth: 1,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
   },
   eyebrowText: {
-    color: colors.card,
+    color: colors.background,
     fontFamily: fonts.body,
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: "700",
   },
   title: {
     color: colors.foreground,
@@ -151,6 +169,10 @@ const styles = StyleSheet.create({
     borderRadius: radii.lg,
     borderWidth: 1,
     overflow: "hidden",
+  },
+  cardHovered: {
+    borderColor: colors.blue,
+    boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
   },
   twoColumnCard: {
     flexBasis: "48%",
@@ -204,6 +226,9 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 18,
   },
+  arrowHovered: {
+    color: colors.blue,
+  },
   description: {
     color: colors.muted,
     fontFamily: fonts.body,
@@ -217,9 +242,11 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   link: {
-    backgroundColor: colors.foreground,
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.blue,
     borderRadius: radii.sm,
-    color: colors.card,
+    borderWidth: 1,
+    color: colors.blue,
     fontFamily: fonts.body,
     fontSize: 12,
     fontWeight: "600",

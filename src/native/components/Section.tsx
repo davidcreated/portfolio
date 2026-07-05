@@ -10,7 +10,10 @@ type SectionProps = PropsWithChildren<{
 export function Section({ children, title }: SectionProps) {
   return (
     <View nativeID={title.toLowerCase().replace(/\s+/g, "-")} style={styles.section}>
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.titleRow}>
+        <View style={styles.titleAccent} />
+        <Text style={styles.title}>{title}</Text>
+      </View>
       {children}
     </View>
   );
@@ -19,6 +22,17 @@ export function Section({ children, title }: SectionProps) {
 const styles = StyleSheet.create({
   section: {
     gap: spacing.lg,
+  },
+  titleRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: spacing.sm,
+  },
+  titleAccent: {
+    backgroundColor: colors.blue,
+    borderRadius: 2,
+    height: 18,
+    width: 4,
   },
   title: {
     color: colors.foreground,
