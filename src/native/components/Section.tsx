@@ -30,10 +30,11 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   titleAccent: {
-    backgroundColor: colors.blue,
+    backgroundColor: colors.muted,
     borderRadius: 2,
-    height: 18,
-    width: 4,
+    height: 16,
+    opacity: 0.5,
+    width: 3,
   },
   title: {
     color: colors.foreground,

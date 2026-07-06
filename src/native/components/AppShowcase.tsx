@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ViewStyle,
 } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
@@ -151,14 +152,14 @@ const styles = StyleSheet.create({
   },
   taglinePill: {
     backgroundColor: colors.accentSoft,
-    borderColor: colors.blue,
+    borderColor: colors.border,
     borderRadius: radii.sm,
     borderWidth: 1,
     paddingHorizontal: spacing.sm,
     paddingVertical: 3,
   },
   taglineText: {
-    color: colors.blue,
+    color: colors.muted,
     fontFamily: fonts.body,
     fontSize: 12,
     fontWeight: "700",
@@ -202,10 +203,13 @@ const styles = StyleSheet.create({
     borderWidth: 6,
     height: FRAME_HEIGHT,
     overflow: "hidden",
-  },
+    transitionDuration: "200ms",
+    transitionProperty: "border-color, box-shadow",
+    transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+  } as ViewStyle,
   frameHovered: {
     borderColor: colors.blue,
-    boxShadow: "0 20px 45px rgba(0, 0, 0, 0.45)",
+    boxShadow: "0 22px 50px rgba(0, 0, 0, 0.5)",
   },
   image: {
     height: "100%",

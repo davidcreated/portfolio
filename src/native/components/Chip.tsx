@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, Pressable, StyleSheet, Text } from "react-native";
+import { Image, Pressable, StyleSheet, Text, ViewStyle } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 
@@ -40,13 +40,18 @@ const styles = StyleSheet.create({
     height: 32,
     justifyContent: "center",
     paddingHorizontal: spacing.md,
-  },
+    transitionDuration: "160ms",
+    transitionProperty: "border-color, background-color, transform",
+    transitionTimingFunction: "ease",
+  } as ViewStyle,
   icon: {
     height: 16,
     width: 16,
   },
   chipHovered: {
+    backgroundColor: colors.accentSoft,
     borderColor: colors.blue,
+    transform: [{ translateY: -2 }],
   },
   smallChip: {
     height: 24,

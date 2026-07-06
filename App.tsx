@@ -107,6 +107,7 @@ export default function App() {
       >
         <Reveal>
           <Header
+            avatar={DATA.avatar}
             description={DATA.description}
             location={DATA.location}
             name={DATA.name}

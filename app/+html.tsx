@@ -19,10 +19,16 @@ export default function Root({ children }: PropsWithChildren) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <meta name="theme-color" content="#0B0910" />
+        <meta name="theme-color" content="#0A0812" />
         <meta name="author" content="David-Paul Folorunsho-Roberts" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={SITE_URL} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
         <ScrollViewStyleReset />
         <script
           type="application/ld+json"
@@ -37,7 +43,7 @@ export default function Root({ children }: PropsWithChildren) {
 
 const rootStyle = `
 html, body, #root {
-  background-color: #0B0910;
+  background-color: #0A0812;
 }
 body {
   overscroll-behavior: none;

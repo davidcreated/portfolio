@@ -1,20 +1,32 @@
-import { StyleSheet, Text, useWindowDimensions, View, ViewStyle } from "react-native";
+import { Image, StyleSheet, Text, useWindowDimensions, View, ViewStyle } from "react-native";
 
 import { colors, fonts, spacing } from "../styles";
+import { ImageSource } from "../types";
 import { ExternalPressable } from "./ExternalPressable";
 
 type HeaderProps = {
+  avatar: ImageSource;
   description: string;
   location: string;
   name: string;
   resumeUrl: string;
 };
 
-export function Header({ description, location, name, resumeUrl }: HeaderProps) {
+export function Header({ avatar, description, location, name, resumeUrl }: HeaderProps) {
   const { width } = useWindowDimensions();
   const isWide = width >= 980;
 
-  const eyebrow = <Text style={styles.eyebrow}>Hi, I&apos;m 👋</Text>;
+  const eyebrow = (
+    <View style={[styles.introRow, !isWide && styles.introRowCenter]}>
+      <Image
+        accessibilityIgnoresInvertColors
+        alt={`${name} — ${description}`}
+        source={avatar}
+        style={styles.avatar}
+      />
+      <Text style={styles.eyebrow}>Hi, I&apos;m 👋</Text>
+    </View>
+  );
   const nameText = (
     <Text
       accessibilityLabel={`${name}, ${description}`}
@@ -111,12 +123,27 @@ const styles = StyleSheet.create({
     left: 24,
     position: "absolute",
   },
+  introRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  introRowCenter: {
+    justifyContent: "center",
+  },
+  avatar: {
+    borderColor: colors.border,
+    borderRadius: 999,
+    borderWidth: 2,
+    height: 46,
+    width: 46,
+  },
   eyebrow: {
-    color: colors.blue,
+    color: colors.muted,
     fontFamily: fonts.body,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "600",
-    marginBottom: spacing.xs,
   },
   name: {
     color: colors.foreground,
@@ -151,7 +178,10 @@ const styles = StyleSheet.create({
     boxShadow: `0 8px 30px ${colors.blue}66`,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.sm,
-  },
+    transitionDuration: "160ms",
+    transitionProperty: "transform, box-shadow, filter",
+    transitionTimingFunction: "ease",
+  } as ViewStyle,
   resumeButtonText: {
     color: colors.background,
     fontFamily: fonts.body,

@@ -1,6 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
-import { Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import { Linking, Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
 
 import { colors, fonts, radii, spacing } from "../styles";
 import { WritingItem } from "../types";
@@ -86,10 +86,14 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     minWidth: 260,
     padding: spacing.lg,
-  },
+    transitionDuration: "180ms",
+    transitionProperty: "border-color, box-shadow, transform",
+    transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+  } as ViewStyle,
   cardHovered: {
     borderColor: colors.blue,
-    boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
+    boxShadow: "0 18px 44px rgba(0, 0, 0, 0.45)",
+    transform: [{ translateY: -4 }],
   },
   cardHead: {
     alignItems: "center",
@@ -98,17 +102,19 @@ const styles = StyleSheet.create({
   },
   tagPill: {
     backgroundColor: colors.accentSoft,
-    borderColor: colors.blue,
+    borderColor: colors.border,
     borderRadius: radii.sm,
     borderWidth: 1,
     paddingHorizontal: spacing.sm,
     paddingVertical: 3,
   },
   tagText: {
-    color: colors.blue,
+    color: colors.muted,
     fontFamily: fonts.body,
     fontSize: 11,
     fontWeight: "700",
+    letterSpacing: 0.4,
+    textTransform: "uppercase",
   },
   title: {
     color: colors.foreground,

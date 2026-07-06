@@ -1,38 +1,40 @@
-// NOTE: the `blue` token is the site's single accent color. It now holds a
-// violet/purple; the name is kept so every `colors.blue` reference stays valid.
+// Intentional palette (60-30-10): `background` is the dominant surface, the
+// neutral steps (card / accentSoft / border / muted) carry the 30%, and `blue`
+// is the single 10% accent — reserved for actions, active state, and hover
+// feedback only, never for static decoration.
 export const colors = {
-  background: "var(--color-background, #0B0910)",
-  card: "var(--color-card, #151221)",
-  foreground: "var(--color-foreground, #FAFAFA)",
-  muted: "var(--color-muted, #A5A0B5)",
-  border: "var(--color-border, #26223A)",
-  accent: "var(--color-accent, #FAFAFA)",
-  accentSoft: "var(--color-accent-soft, #1C1730)",
-  ring: "var(--color-ring, #3A3358)",
-  blue: "var(--color-blue, #A78BFA)",
+  background: "var(--color-background, #0A0812)", // 60% base
+  card: "var(--color-card, #17131F)", // elevated panels
+  accentSoft: "var(--color-accent-soft, #201B2E)", // neutral chips / inputs
+  border: "var(--color-border, #2A2540)", // subtle dividers
+  foreground: "var(--color-foreground, #F5F3FA)", // primary text
+  muted: "var(--color-muted, #A19BB2)", // secondary text
+  accent: "var(--color-accent, #F5F3FA)",
+  ring: "var(--color-ring, #A78BFA)", // focus ring = accent
+  blue: "var(--color-blue, #A78BFA)", // 10% accent — actions only
 };
 
 export const lightTheme = {
-  background: "#FAFAFA",
+  background: "#FBFAFE",
   card: "#FFFFFF",
-  foreground: "#0A0A0A",
-  muted: "#6B6580",
-  border: "#E7E3F0",
-  accent: "#0A0A0A",
-  accentSoft: "#F3F0FB",
-  ring: "#E7E3F0",
+  accentSoft: "#F1EEFA",
+  border: "#E7E3F2",
+  foreground: "#141021",
+  muted: "#66617A",
+  accent: "#141021",
+  ring: "#7C3AED",
   blue: "#7C3AED",
 };
 
 export const darkTheme = {
-  background: "#0B0910",
-  card: "#151221",
-  foreground: "#FAFAFA",
-  muted: "#A5A0B5",
-  border: "#26223A",
-  accent: "#FAFAFA",
-  accentSoft: "#1C1730",
-  ring: "#3A3358",
+  background: "#0A0812",
+  card: "#17131F",
+  accentSoft: "#201B2E",
+  border: "#2A2540",
+  foreground: "#F5F3FA",
+  muted: "#A19BB2",
+  accent: "#F5F3FA",
+  ring: "#A78BFA",
   blue: "#A78BFA",
 };
 
@@ -50,8 +52,10 @@ export function getThemeVariables(theme: typeof darkTheme) {
   };
 }
 
+// Inter carries the body/UI text (a proper, highly-legible workhorse); the
+// ClashDisplay display face is reserved for large headings only.
 export const fonts = {
-  body: "CabinetGrotesk",
+  body: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
   heading: "ClashDisplay",
 };
 
