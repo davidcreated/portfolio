@@ -1,7 +1,14 @@
 import Head from "expo-router/head";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, View, ViewStyle } from "react-native";
+import { useEffect, useState } from "react";
+import {
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from "react-native";
 
 import { AboutText } from "./src/native/components/AboutText";
 import { AppShowcase } from "./src/native/components/AppShowcase";
@@ -21,7 +28,7 @@ import { TopNav } from "./src/native/components/TopNav";
 import { Writing } from "./src/native/components/Writing";
 import { DATA } from "./src/native/data";
 import { SEO, SITE_URL } from "./src/native/seo";
-import { colors, darkTheme, getThemeVariables, spacing } from "./src/native/styles";
+import { colors, darkTheme, getThemeVariables, lightTheme, spacing } from "./src/native/styles";
 import { ProjectItem } from "./src/native/types";
 
 const NAV_ITEMS = [
@@ -37,7 +44,18 @@ const NAV_ITEMS = [
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-  const themeVariables = getThemeVariables(darkTheme) as ViewStyle;
+  const [isDark, setIsDark] = useState(true);
+  const theme = isDark ? darkTheme : lightTheme;
+  const themeVariables = getThemeVariables(theme) as ViewStyle;
+
+  // Keep the document background in sync with the theme so overscroll/edges
+  // match instead of flashing the static dark default.
+  useEffect(() => {
+    if (Platform.OS === "web") {
+      document.documentElement.style.backgroundColor = theme.background;
+      document.body.style.backgroundColor = theme.background;
+    }
+  }, [theme.background]);
 
   return (
     <SafeAreaView style={[styles.safeArea, themeVariables]}>
@@ -58,7 +76,7 @@ export default function App() {
         <meta name="twitter:description" content={SEO.description} />
         <meta name="twitter:image" content={SEO.image} />
       </Head>
-      <StatusBar style="light" />
+      <StatusBar style={isDark ? "light" : "dark"} />
       <GlowBackground />
       <BackgroundGrid />
       <TopNav items={NAV_ITEMS} />
@@ -66,7 +84,6 @@ export default function App() {
         <View style={styles.page}>
           <Reveal>
             <Header
-              avatar={DATA.avatar}
               description={DATA.description}
               location={DATA.location}
               name={DATA.name}
@@ -116,7 +133,11 @@ export default function App() {
           </Reveal>
         </View>
       </ScrollView>
-      <Dock items={DATA.navbar} />
+      <Dock
+        isDark={isDark}
+        items={DATA.navbar}
+        onToggleTheme={() => setIsDark((prev) => !prev)}
+      />
       <CursorDot />
       <ProjectDetailModal item={selectedProject} onClose={() => setSelectedProject(null)} />
     </SafeAreaView>

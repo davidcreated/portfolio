@@ -19,7 +19,7 @@ export default function Root({ children }: PropsWithChildren) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <meta name="theme-color" content="#0A0A0A" />
+        <meta name="theme-color" content="#0B0910" />
         <meta name="author" content="David-Paul Folorunsho-Roberts" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={SITE_URL} />
@@ -37,7 +37,7 @@ export default function Root({ children }: PropsWithChildren) {
 
 const rootStyle = `
 html, body, #root {
-  background-color: #0A0A0A;
+  background-color: #0B0910;
 }
 body {
   overscroll-behavior: none;

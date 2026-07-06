@@ -1,37 +1,39 @@
+// NOTE: the `blue` token is the site's single accent color. It now holds a
+// violet/purple; the name is kept so every `colors.blue` reference stays valid.
 export const colors = {
-  background: "var(--color-background, #FAFAFA)",
-  card: "var(--color-card, #FFFFFF)",
-  foreground: "var(--color-foreground, #0A0A0A)",
-  muted: "var(--color-muted, #737373)",
-  border: "var(--color-border, #E5E5E5)",
-  accent: "var(--color-accent, #0A0A0A)",
-  accentSoft: "var(--color-accent-soft, #F5F5F5)",
-  ring: "var(--color-ring, #E5E5E5)",
-  blue: "var(--color-blue, #2563EB)",
+  background: "var(--color-background, #0B0910)",
+  card: "var(--color-card, #151221)",
+  foreground: "var(--color-foreground, #FAFAFA)",
+  muted: "var(--color-muted, #A5A0B5)",
+  border: "var(--color-border, #26223A)",
+  accent: "var(--color-accent, #FAFAFA)",
+  accentSoft: "var(--color-accent-soft, #1C1730)",
+  ring: "var(--color-ring, #3A3358)",
+  blue: "var(--color-blue, #A78BFA)",
 };
 
 export const lightTheme = {
   background: "#FAFAFA",
   card: "#FFFFFF",
   foreground: "#0A0A0A",
-  muted: "#737373",
-  border: "#E5E5E5",
+  muted: "#6B6580",
+  border: "#E7E3F0",
   accent: "#0A0A0A",
-  accentSoft: "#F5F5F5",
-  ring: "#E5E5E5",
-  blue: "#2563EB",
+  accentSoft: "#F3F0FB",
+  ring: "#E7E3F0",
+  blue: "#7C3AED",
 };
 
 export const darkTheme = {
-  background: "#0A0A0A",
-  card: "#111111",
+  background: "#0B0910",
+  card: "#151221",
   foreground: "#FAFAFA",
-  muted: "#A3A3A3",
-  border: "#262626",
+  muted: "#A5A0B5",
+  border: "#26223A",
   accent: "#FAFAFA",
-  accentSoft: "#171717",
-  ring: "#404040",
-  blue: "#60A5FA",
+  accentSoft: "#1C1730",
+  ring: "#3A3358",
+  blue: "#A78BFA",
 };
 
 export function getThemeVariables(theme: typeof darkTheme) {

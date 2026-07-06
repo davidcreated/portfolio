@@ -6,10 +6,12 @@ import { colors, fonts } from "../styles";
 import { ContactItem } from "../types";
 
 type DockProps = {
+  isDark: boolean;
   items: ContactItem[];
+  onToggleTheme: () => void;
 };
 
-export function Dock({ items }: DockProps) {
+export function Dock({ isDark, items, onToggleTheme }: DockProps) {
   return (
     <View pointerEvents="box-none" style={styles.wrapper}>
       <View style={styles.dock}>
@@ -21,6 +23,10 @@ export function Dock({ items }: DockProps) {
             </DockButton>
           </View>
         ))}
+        <View style={styles.separator} />
+        <DockButton label={isDark ? "Light mode" : "Dark mode"} onPress={onToggleTheme}>
+          <Feather color={colors.muted} name={isDark ? "sun" : "moon"} size={22} />
+        </DockButton>
       </View>
     </View>
   );

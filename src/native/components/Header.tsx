@@ -1,44 +1,24 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from "react-native";
+import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { colors, fonts, spacing } from "../styles";
-import { ImageSource } from "../types";
+import { CursorAvatar } from "./CursorAvatar";
 import { ExternalPressable } from "./ExternalPressable";
 
 type HeaderProps = {
-  avatar: ImageSource;
   description: string;
   location: string;
   name: string;
   resumeUrl: string;
 };
 
-export function Header({
-  avatar,
-  description,
-  location,
-  name,
-  resumeUrl,
-}: HeaderProps) {
+export function Header({ description, location, name, resumeUrl }: HeaderProps) {
   const { width } = useWindowDimensions();
   const isStacked = width < 1100;
   const firstName = name.split(" ")[0];
 
   return (
     <View style={[styles.container, isStacked && styles.stackedContainer]}>
-      {isStacked ? (
-        <Image
-          accessibilityIgnoresInvertColors
-          alt={`${name} — ${description}`}
-          source={avatar}
-          style={styles.avatar}
-        />
-      ) : null}
+      {isStacked ? <CursorAvatar /> : null}
       <View style={styles.copy}>
         <Text
           accessibilityLabel={`${name}, ${description}`}
@@ -58,14 +38,7 @@ export function Header({
           </View>
         </ExternalPressable>
       </View>
-      {!isStacked ? (
-        <Image
-          accessibilityIgnoresInvertColors
-          alt={`${name} — ${description}`}
-          source={avatar}
-          style={styles.avatar}
-        />
-      ) : null}
+      {!isStacked ? <CursorAvatar /> : null}
     </View>
   );
 }
