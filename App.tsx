@@ -81,15 +81,15 @@ export default function App() {
       <BackgroundGrid />
       <TopNav items={NAV_ITEMS} />
       <ScrollView contentContainerStyle={styles.scrollContent}>
+        <Reveal>
+          <Header
+            description={DATA.description}
+            location={DATA.location}
+            name={DATA.name}
+            resumeUrl={DATA.resumeUrl}
+          />
+        </Reveal>
         <View style={styles.page}>
-          <Reveal>
-            <Header
-              description={DATA.description}
-              location={DATA.location}
-              name={DATA.name}
-              resumeUrl={DATA.resumeUrl}
-            />
-          </Reveal>
           <Reveal delay={120}>
             <Section title="About">
               <AboutText text={DATA.summary} />

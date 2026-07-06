@@ -1,19 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { CursorAvatar } from "./CursorAvatar";
-
 // Public NEXBOT community scene (tracks the cursor natively). ~1.35 MB.
 const SCENE = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
 const VIEWER_SRC = "https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js";
 
 /**
- * The 3D NEXBOT hero. It's heavy (WebGL + a multi-MB scene), so we:
- *  - only load it on desktop pointer devices, and never with reduced-motion,
- *  - defer loading until the browser is idle (keeps first paint fast),
- *  - show the lightweight code-built CursorAvatar as a placeholder/fallback
- *    until the scene reports it has loaded.
- * On mobile / reduced-motion the code avatar is all that ever renders.
+ * The 3D NEXBOT hero centerpiece. It fills its parent, so the hero controls how
+ * big it is. It's heavy (WebGL + a multi-MB scene), so loading is deferred until
+ * the browser is idle (keeps first paint fast) and skipped under
+ * prefers-reduced-motion. It fades in once the scene reports loaded.
  */
 export function SplineAvatar() {
   const hostRef = useRef<View>(null);
@@ -24,9 +20,7 @@ export function SplineAvatar() {
     if (typeof window === "undefined" || !window.matchMedia) {
       return;
     }
-    const desktop = window.matchMedia("(min-width: 900px) and (pointer: fine)").matches;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!desktop || reduce) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
@@ -86,30 +80,10 @@ export function SplineAvatar() {
     };
   }, [enabled]);
 
-  return (
-    <View style={styles.box}>
-      {!loaded ? (
-        <View pointerEvents="none" style={styles.placeholder}>
-          <CursorAvatar />
-        </View>
-      ) : null}
-      <View ref={hostRef} style={[styles.host, { opacity: loaded ? 1 : 0 }]} />
-    </View>
-  );
+  return <View ref={hostRef} style={[styles.host, { opacity: loaded ? 1 : 0 }]} />;
 }
 
 const styles = StyleSheet.create({
-  box: {
-    alignItems: "center",
-    height: 380,
-    justifyContent: "center",
-    width: 340,
-  },
-  placeholder: {
-    ...StyleSheet.absoluteFill,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   host: {
     height: "100%",
     width: "100%",
