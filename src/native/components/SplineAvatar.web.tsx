@@ -20,9 +20,9 @@ export function SplineAvatar() {
     if (typeof window === "undefined" || !window.matchMedia) {
       return;
     }
-    const desktop = window.matchMedia("(min-width: 1000px) and (pointer: fine)").matches;
+    const bigEnough = window.matchMedia("(min-width: 380px)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!desktop || reduce) {
+    if (!bigEnough || reduce) {
       return;
     }
 

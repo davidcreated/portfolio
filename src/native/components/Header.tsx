@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
     lineHeight: 62,
   },
   nameSm: {
-    fontSize: 40,
-    lineHeight: 46,
+    fontSize: 30,
+    lineHeight: 36,
     textAlign: "center",
   },
   role: {
@@ -162,11 +162,15 @@ const styles = StyleSheet.create({
   stack: {
     alignItems: "center",
     gap: spacing.lg,
+    paddingHorizontal: 24,
+    paddingTop: 12,
     width: "100%",
   },
   stackText: {
     alignItems: "center",
     gap: spacing.sm,
+    maxWidth: 520,
+    width: "100%",
   },
   stackResume: {
     alignItems: "center",
