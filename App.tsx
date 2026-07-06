@@ -23,6 +23,7 @@ import { Reveal } from "./src/native/components/Reveal";
 import { ScrollProgress } from "./src/native/components/ScrollProgress";
 import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
+import { SplineAvatar } from "./src/native/components/SplineAvatar";
 import { StartProject } from "./src/native/components/StartProject";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { TopNav } from "./src/native/components/TopNav";
@@ -81,8 +82,14 @@ export default function App() {
       <StatusBar style={isDark ? "light" : "dark"} />
       <GlowBackground />
       <BackgroundGrid />
+      <View pointerEvents="box-none" style={styles.botLayer}>
+        <View style={[styles.botBox, { opacity: isDark ? 0.95 : 0 }]}>
+          <SplineAvatar />
+        </View>
+      </View>
       <TopNav items={NAV_ITEMS} />
       <ScrollView
+        style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         onScroll={(e) => {
           const { contentOffset, contentSize, layoutMeasurement } = e.nativeEvent;
@@ -181,6 +188,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     flex: 1,
   },
+  scroll: {
+    zIndex: 1,
+  } as ViewStyle,
   scrollContent: {
     minWidth: "100%",
     paddingBottom: 112,
@@ -191,10 +201,26 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     gap: spacing.xxl,
     marginHorizontal: "auto",
-    maxWidth: 720,
-    paddingHorizontal: 24,
+    maxWidth: 1000,
+    paddingHorizontal: 32,
     width: "100%",
   },
+  botLayer: {
+    alignItems: "center",
+    bottom: 0,
+    justifyContent: "center",
+    left: 0,
+    position: "fixed",
+    right: 0,
+    top: 0,
+    zIndex: 0,
+  } as unknown as ViewStyle,
+  botBox: {
+    height: 900,
+    maxHeight: "96%",
+    maxWidth: "96%",
+    width: 860,
+  } as ViewStyle,
   backgroundGrid: {
     flexDirection: "row",
     flexWrap: "wrap",

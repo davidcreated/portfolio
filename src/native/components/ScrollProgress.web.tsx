@@ -63,7 +63,7 @@ export function ScrollProgress({ items, progress }: ScrollProgressProps) {
     if (typeof window === "undefined" || !window.matchMedia) {
       return;
     }
-    const mql = window.matchMedia("(min-width: 1000px)");
+    const mql = window.matchMedia("(min-width: 1200px)");
     const update = () => setWide(mql.matches);
     update();
     mql.addEventListener("change", update);

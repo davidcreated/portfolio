@@ -2,7 +2,6 @@ import { StyleSheet, Text, useWindowDimensions, View, ViewStyle } from "react-na
 
 import { colors, fonts, spacing } from "../styles";
 import { ExternalPressable } from "./ExternalPressable";
-import { SplineAvatar } from "./SplineAvatar";
 
 type HeaderProps = {
   description: string;
@@ -49,18 +48,12 @@ export function Header({ description, location, name, resumeUrl }: HeaderProps) 
           {role}
           <View style={styles.stackResume}>{resume}</View>
         </View>
-        <View style={styles.robotStack}>
-          <SplineAvatar />
-        </View>
       </View>
     );
   }
 
   return (
     <View style={styles.hero}>
-      <View pointerEvents="box-none" style={styles.robotFill}>
-        <SplineAvatar />
-      </View>
       <View pointerEvents="box-none" style={styles.textInner}>
         <View pointerEvents="none" style={styles.nameBlock}>
           {eyebrow}
