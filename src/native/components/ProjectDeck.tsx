@@ -90,6 +90,10 @@ export function ProjectDeck({ items, onSelect }: ProjectDeckProps) {
   const pan = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: (_, g) => Math.abs(g.dx) > 6 && Math.abs(g.dx) > Math.abs(g.dy),
+      // Capture phase so the deck wrests the gesture from the card's Pressable
+      // once a real horizontal drag starts (taps still reach the Pressable).
+      onMoveShouldSetPanResponderCapture: (_, g) =>
+        Math.abs(g.dx) > 8 && Math.abs(g.dx) > Math.abs(g.dy),
       onPanResponderMove: (_, g) => {
         if (!animatingRef.current) {
           dragX.setValue(g.dx);
@@ -100,11 +104,10 @@ export function ProjectDeck({ items, onSelect }: ProjectDeckProps) {
           return;
         }
         const w = cardWRef.current || 320;
+        // A near-zero drag is a tap — handled by the card's Pressable, so just
+        // settle back and let the tap open the modal.
         if (Math.abs(g.dx) < 6 && Math.abs(g.dy) < 6) {
-          const item = itemsRef.current[topRef.current];
-          if (item) {
-            onSelectRef.current(item);
-          }
+          dragX.setValue(0);
           return;
         }
         const past = Math.abs(g.dx) >= w * 0.3 || Math.abs(g.vx) >= 0.45;
@@ -155,7 +158,17 @@ export function ProjectDeck({ items, onSelect }: ProjectDeckProps) {
         ]}
         {...(isTop ? pan.panHandlers : {})}
       >
-        <DeckCard item={item} />
+        {isTop ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => onSelect(item)}
+            style={styles.cardPress}
+          >
+            <DeckCard item={item} />
+          </Pressable>
+        ) : (
+          <DeckCard item={item} />
+        )}
       </Animated.View>,
     );
   }
@@ -256,6 +269,9 @@ const styles = StyleSheet.create({
     top: 8,
     ...(Platform_select_cursor() as object),
   },
+  cardPress: {
+    cursor: "grab",
+  } as unknown as ViewStyle,
   card: {
     backgroundColor: colors.card,
     borderColor: colors.border,
