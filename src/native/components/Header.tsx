@@ -61,24 +61,24 @@ export function Header({ description, location, name, resumeUrl }: HeaderProps) 
       <View pointerEvents="box-none" style={styles.robotFill}>
         <SplineAvatar />
       </View>
-      <View pointerEvents="none" style={styles.nameBlock}>
-        {eyebrow}
-        {nameText}
+      <View pointerEvents="box-none" style={styles.textInner}>
+        <View pointerEvents="none" style={styles.nameBlock}>
+          {eyebrow}
+          {nameText}
+        </View>
+        <View pointerEvents="none" style={styles.roleBlock}>
+          {role}
+        </View>
+        <View style={styles.resumeBlock}>{resume}</View>
       </View>
-      <View pointerEvents="none" style={styles.roleBlock}>
-        {role}
-      </View>
-      <View style={styles.resumeBlock}>{resume}</View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   hero: {
-    alignSelf: "center",
-    height: 600,
-    maxWidth: 1120,
-    paddingHorizontal: 24,
+    alignItems: "center",
+    height: 700,
     position: "relative",
     width: "100%",
   },
@@ -90,26 +90,33 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 0,
   },
+  textInner: {
+    alignSelf: "center",
+    bottom: 0,
+    maxWidth: 1120,
+    paddingHorizontal: 24,
+    position: "absolute",
+    top: 0,
+    width: "100%",
+    zIndex: 2,
+  },
   nameBlock: {
     left: 24,
-    maxWidth: 620,
+    maxWidth: 560,
     position: "absolute",
-    top: 40,
-    zIndex: 2,
+    top: 44,
   },
   roleBlock: {
     alignItems: "flex-end",
-    bottom: 120,
-    maxWidth: 380,
+    bottom: 128,
+    maxWidth: 360,
     position: "absolute",
     right: 24,
-    zIndex: 2,
   },
   resumeBlock: {
-    bottom: 44,
+    bottom: 48,
     left: 24,
     position: "absolute",
-    zIndex: 2,
   },
   eyebrow: {
     color: colors.blue,

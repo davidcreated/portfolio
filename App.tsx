@@ -20,6 +20,7 @@ import { Header } from "./src/native/components/Header";
 import { ProjectDetailModal } from "./src/native/components/ProjectDetailModal";
 import { ProjectList } from "./src/native/components/ProjectList";
 import { Reveal } from "./src/native/components/Reveal";
+import { ScrollProgress } from "./src/native/components/ScrollProgress";
 import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
 import { StartProject } from "./src/native/components/StartProject";
@@ -45,6 +46,7 @@ const NAV_ITEMS = [
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [isDark, setIsDark] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const theme = isDark ? darkTheme : lightTheme;
   const themeVariables = getThemeVariables(theme) as ViewStyle;
 
@@ -80,7 +82,15 @@ export default function App() {
       <GlowBackground />
       <BackgroundGrid />
       <TopNav items={NAV_ITEMS} />
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        onScroll={(e) => {
+          const { contentOffset, contentSize, layoutMeasurement } = e.nativeEvent;
+          const max = contentSize.height - layoutMeasurement.height;
+          setScrollProgress(max > 0 ? contentOffset.y / max : 0);
+        }}
+        scrollEventThrottle={16}
+      >
         <Reveal>
           <Header
             description={DATA.description}
@@ -139,6 +149,7 @@ export default function App() {
         onToggleTheme={() => setIsDark((prev) => !prev)}
       />
       <CursorDot />
+      <ScrollProgress items={NAV_ITEMS} progress={scrollProgress} />
       <ProjectDetailModal item={selectedProject} onClose={() => setSelectedProject(null)} />
     </SafeAreaView>
   );
