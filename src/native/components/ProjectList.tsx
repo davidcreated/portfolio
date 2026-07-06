@@ -15,6 +15,7 @@ import {
 import { colors, fonts, radii, spacing } from "../styles";
 import { ProjectItem } from "../types";
 import { ExternalPressable } from "./ExternalPressable";
+import { ProjectDeck } from "./ProjectDeck";
 
 type ProjectListProps = {
   items: ProjectItem[];
@@ -22,30 +23,14 @@ type ProjectListProps = {
 };
 
 export function ProjectList({ items, onSelectProject }: ProjectListProps) {
-  const [gridWidth, setGridWidth] = useState(0);
-  const isTwoColumn = gridWidth >= 640;
-
-  const updateGridWidth = (event: LayoutChangeEvent) => {
-    setGridWidth(event.nativeEvent.layout.width);
-  };
-
   return (
     <View nativeID="projects" style={styles.wrapper}>
       <SectionHeader
         eyebrow="Projects"
-        subtitle="Production and open-source work spanning fintech, health tech, and infrastructure"
+        subtitle="Drag a card left or right to browse. Tap to open the case study."
         title="Selected project work"
       />
-      <View onLayout={updateGridWidth} style={styles.grid}>
-        {items.map((item) => (
-          <ProjectCard
-            isTwoColumn={isTwoColumn}
-            item={item}
-            key={item.title}
-            onSelect={onSelectProject}
-          />
-        ))}
-      </View>
+      <ProjectDeck items={items} onSelect={onSelectProject} />
     </View>
   );
 }
