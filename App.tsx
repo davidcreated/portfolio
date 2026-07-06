@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 import { AboutText } from "./src/native/components/AboutText";
-import { AppShowcase } from "./src/native/components/AppShowcase";
+import { WorkGrid } from "./src/native/components/WorkGrid";
 import { ContactLinks } from "./src/native/components/ContactLinks";
 import { CursorDot } from "./src/native/components/CursorDot";
 import { Dock } from "./src/native/components/Dock";
@@ -23,7 +23,6 @@ import { Reveal } from "./src/native/components/Reveal";
 import { ScrollProgress } from "./src/native/components/ScrollProgress";
 import { Section } from "./src/native/components/Section";
 import { SkillList } from "./src/native/components/SkillList";
-import { SplineAvatar } from "./src/native/components/SplineAvatar";
 import { StartProject } from "./src/native/components/StartProject";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { TopNav } from "./src/native/components/TopNav";
@@ -34,13 +33,9 @@ import { colors, darkTheme, getThemeVariables, lightTheme, spacing } from "./src
 import { ProjectItem } from "./src/native/types";
 
 const NAV_ITEMS = [
+  { id: "work", label: "Works" },
   { id: "about", label: "About" },
-  { id: "work-experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
-  { id: "app-showcase", label: "Apps" },
-  { id: "projects", label: "Projects" },
-  { id: "contribution", label: "Contribution" },
-  { id: "start-a-project", label: "Start a Project" },
+  { id: "process", label: "Process" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -80,20 +75,6 @@ export default function App() {
         <meta name="twitter:image" content={SEO.image} />
       </Head>
       <StatusBar style={isDark ? "light" : "dark"} />
-      <GlowBackground />
-      <BackgroundGrid />
-      <View pointerEvents="box-none" style={styles.botLayer}>
-        <View style={styles.botBox}>
-          <SplineAvatar />
-        </View>
-      </View>
-      <View
-        pointerEvents="none"
-        style={[
-          styles.botScrim,
-          { backgroundColor: isDark ? "rgba(11,9,16,0.56)" : "rgba(248,246,252,0.66)" },
-        ]}
-      />
       <TopNav items={NAV_ITEMS} />
       <ScrollView
         style={styles.scroll}
@@ -116,35 +97,33 @@ export default function App() {
         </Reveal>
         <View style={styles.page}>
           <Reveal delay={120}>
+            <WorkGrid items={DATA.showcase} />
+          </Reveal>
+          <Reveal delay={160}>
             <Section title="About">
               <AboutText text={DATA.summary} />
             </Section>
           </Reveal>
           <Reveal delay={200}>
-            <Section title="Work Experience">
+            <Section title="Process">
               <TimelineList items={DATA.work} />
             </Section>
           </Reveal>
           <Reveal delay={280}>
+            <Section title="Toolkit">
+              <SkillList items={DATA.skills} />
+            </Section>
+          </Reveal>
+          <Reveal delay={340}>
             <Section title="Education">
               <EducationList items={DATA.education} />
             </Section>
           </Reveal>
-          <Reveal delay={360}>
-            <Section title="Skills">
-              <SkillList items={DATA.skills} />
-            </Section>
-          </Reveal>
           <Reveal delay={400}>
-            <Section title="App Showcase">
-              <AppShowcase items={DATA.showcase} />
-            </Section>
-          </Reveal>
-          <Reveal delay={440}>
             <ProjectList items={DATA.projects} onSelectProject={setSelectedProject} />
           </Reveal>
-          <Reveal delay={480}>
-            <Section title="Contribution">
+          <Reveal delay={460}>
+            <Section title="Writing">
               <Writing items={DATA.writing} mediumUrl={DATA.mediumUrl} />
             </Section>
           </Reveal>
