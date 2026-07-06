@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  Animated,
+  Easing,
   Image,
-  ImageStyle,
   LayoutChangeEvent,
   Linking,
   Pressable,
@@ -13,6 +14,51 @@ import {
 
 import { colors, fonts, radii, spacing } from "../styles";
 import { ShowcaseItem } from "../types";
+
+// Auto-advancing screenshot carousel, mirroring the MotoBites home banner:
+// a 450ms ease-in-out slide to the next screen every ~2.2s, looping.
+function ScreenshotCarousel({ shots, label }: { shots: string[]; label: string }) {
+  const [index, setIndex] = useState(0);
+  const [width, setWidth] = useState(0);
+  const tx = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (shots.length <= 1) {
+      return;
+    }
+    const id = setInterval(() => setIndex((i) => (i + 1) % shots.length), 2200);
+    return () => clearInterval(id);
+  }, [shots.length]);
+
+  useEffect(() => {
+    Animated.timing(tx, {
+      toValue: -index * width,
+      duration: 450,
+      easing: Easing.inOut(Easing.ease),
+      useNativeDriver: false,
+    }).start();
+  }, [index, width, tx]);
+
+  return (
+    <View
+      onLayout={(e: LayoutChangeEvent) => setWidth(e.nativeEvent.layout.width)}
+      style={styles.carousel}
+    >
+      <Animated.View style={[styles.track, { transform: [{ translateX: tx }] }]}>
+        {shots.map((uri, i) => (
+          <Image
+            accessibilityIgnoresInvertColors
+            alt={`${label} screen ${i + 1}`}
+            key={uri}
+            resizeMode="cover"
+            source={{ uri }}
+            style={[styles.slide, { width }]}
+          />
+        ))}
+      </Animated.View>
+    </View>
+  );
+}
 
 type WorkGridProps = {
   items: ShowcaseItem[];
@@ -64,14 +110,14 @@ function WorkCard({ index, item }: { index: number; item: ShowcaseItem }) {
       style={styles.card}
     >
       <View style={styles.stage}>
-        <View style={[styles.device, { aspectRatio: item.aspectRatio }]}>
-          <Image
-            accessibilityIgnoresInvertColors
-            alt={`${item.title} app screen`}
-            resizeMode="cover"
-            source={{ uri: item.screenshots[0] }}
-            style={[styles.shot, hovered && styles.shotHovered]}
-          />
+        <View
+          style={[
+            styles.device,
+            { aspectRatio: item.aspectRatio },
+            hovered && styles.deviceHovered,
+          ]}
+        >
+          <ScreenshotCarousel label={item.title} shots={item.screenshots} />
         </View>
         <View style={[styles.overlay, hovered && styles.overlayVisible]}>
           <Text style={styles.overlayText}>Explore the Technical Architecture →</Text>
@@ -159,18 +205,24 @@ const styles = StyleSheet.create({
     height: 420,
     overflow: "hidden",
     transitionDuration: "400ms",
-    transitionProperty: "transform",
+    transitionProperty: "transform, box-shadow",
     transitionTimingFunction: "ease-in-out",
   } as unknown as ViewStyle,
-  shot: {
+  deviceHovered: {
+    boxShadow: "0 40px 80px rgba(0,0,0,0.65)",
+    transform: [{ scale: 1.03 }],
+  },
+  carousel: {
     height: "100%",
-    transitionDuration: "400ms",
-    transitionProperty: "transform",
-    transitionTimingFunction: "ease-in-out",
+    overflow: "hidden",
     width: "100%",
-  } as unknown as ImageStyle,
-  shotHovered: {
-    transform: [{ scale: 1.05 }],
+  },
+  track: {
+    flexDirection: "row",
+    height: "100%",
+  },
+  slide: {
+    height: "100%",
   },
   overlay: {
     alignItems: "center",
