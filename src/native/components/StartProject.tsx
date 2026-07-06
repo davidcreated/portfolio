@@ -44,8 +44,8 @@ export function StartProject({ email = EMAIL }: StartProjectProps) {
 
     const subject = `New project inquiry: ${title.trim()}`;
     const body = description.trim()
-      ? `${description.trim()}\n\n— Sent from your portfolio`
-      : "— Sent from your portfolio";
+      ? `${description.trim()}\n\nSent from your portfolio`
+      : "Sent from your portfolio";
     const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     void Linking.openURL(url);
   };

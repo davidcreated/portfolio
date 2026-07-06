@@ -292,7 +292,7 @@ export const DATA: PortfolioData = {
       title: "Super Planner",
       href: "https://play.google.com/store/apps/details?id=super.planner.todolist.task.reminder",
       description:
-        "AI-powered planner and to-do app — manage routines and tasks, track mood daily, and turn goals into action. Live on Google Play.",
+        "AI-powered planner and to-do app to manage routines and tasks, track mood daily, and turn goals into action. Live on Google Play.",
       media:
         "https://play-lh.googleusercontent.com/xKvWeUpz80pZhfbLuLCtBorRONEMhR46tIP386Pqe9sX9B9AtZtee7wSSqg_aRqL-4i4Wx-zvdN7QzVq_31yiw=s512",
       links: [
@@ -635,7 +635,7 @@ export const DATA: PortfolioData = {
     {
       title: "From Chaos to Clarity",
       excerpt:
-        "Taking over and stabilizing a Flutter codebase built by 17 developers — untangling architecture, conventions, and technical debt.",
+        "Taking over and stabilizing a Flutter codebase built by 17 developers, untangling architecture, conventions, and technical debt.",
       tag: "Flutter · Architecture",
       url: "https://medium.com/@timifroberts/from-chaos-to-clarity-taking-over-a-flutter-codebase-built-by-17-developers-be87ba82d44d",
     },

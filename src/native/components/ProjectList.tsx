@@ -118,7 +118,7 @@ function ProjectCard({ isTwoColumn, item, onSelect }: ProjectCardProps) {
         {item.media ? (
           <Image
             accessibilityIgnoresInvertColors
-            alt={`${item.title} — ${item.description}`}
+            alt={`${item.title}: ${item.description}`}
             resizeMode="cover"
             source={{ uri: item.media }}
             style={styles.mediaImage}

@@ -9,7 +9,7 @@ export const SEO = {
   description:
     "Software Engineer · Mobile & Backend. 6+ years shipping production apps across fintech, health tech, e-commerce, and energy/IoT.",
   image: `${SITE_URL}/og-image.png`,
-  imageAlt: "David-Paul Folorunsho-Roberts — Software Engineer, Mobile & Backend",
+  imageAlt: "David-Paul Folorunsho-Roberts, Software Engineer, Mobile & Backend",
 };
 
 // JSON-LD Person schema for Google rich results / knowledge graph.

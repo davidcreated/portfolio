@@ -40,7 +40,7 @@ export function Header({ avatar, description, location, name, resumeUrl }: Heade
           <View style={[styles.identity, !isWide && styles.identityCenter]}>
             <Image
               accessibilityIgnoresInvertColors
-              alt={`${name} — ${description}`}
+              alt={`${name}, ${description}`}
               source={avatar}
               style={styles.avatar}
             />
@@ -61,8 +61,8 @@ export function Header({ avatar, description, location, name, resumeUrl }: Heade
           </Text>
 
           <Text style={[styles.sub, !isWide && styles.subCenter]}>
-            I design and build production mobile apps — from offline-first fintech and
-            telehealth to real-time energy platforms — where the engineering disappears and
+            I design and build production mobile apps, from offline-first fintech and
+            telehealth to real-time energy platforms, where the engineering disappears and
             the experience simply feels effortless.
           </Text>
 

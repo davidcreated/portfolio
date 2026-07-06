@@ -34,8 +34,8 @@ export function WorkGrid({ items }: WorkGridProps) {
         <Text style={styles.eyebrow}>Selected Works</Text>
         <Text style={styles.title}>Things I&apos;ve shipped</Text>
         <Text style={styles.subtitle}>
-          Production apps across fintech, health tech, e-commerce, and energy — each a study
-          in making complex systems feel calm.
+          Production apps across fintech, health tech, e-commerce, and energy. Each one a
+          study in making complex systems feel calm.
         </Text>
       </View>
 
