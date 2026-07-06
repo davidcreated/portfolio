@@ -1,8 +1,8 @@
 import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { colors, fonts, spacing } from "../styles";
-import { CursorAvatar } from "./CursorAvatar";
 import { ExternalPressable } from "./ExternalPressable";
+import { SplineAvatar } from "./SplineAvatar";
 
 type HeaderProps = {
   description: string;
@@ -18,7 +18,7 @@ export function Header({ description, location, name, resumeUrl }: HeaderProps) 
 
   return (
     <View style={[styles.container, isStacked && styles.stackedContainer]}>
-      {isStacked ? <CursorAvatar /> : null}
+      {isStacked ? <SplineAvatar /> : null}
       <View style={styles.copy}>
         <Text
           accessibilityLabel={`${name}, ${description}`}
@@ -38,7 +38,7 @@ export function Header({ description, location, name, resumeUrl }: HeaderProps) 
           </View>
         </ExternalPressable>
       </View>
-      {!isStacked ? <CursorAvatar /> : null}
+      {!isStacked ? <SplineAvatar /> : null}
     </View>
   );
 }
