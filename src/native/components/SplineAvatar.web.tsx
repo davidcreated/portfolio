@@ -63,6 +63,10 @@ export function SplineAvatar() {
 
     const el = document.createElement("spline-viewer");
     el.setAttribute("url", SCENE);
+    // Listen for pointer events on the whole window, not just the canvas — the
+    // robot sits behind the page content, so without this it would never see
+    // the cursor and wouldn't track it.
+    el.setAttribute("events-target", "global");
     el.style.width = "100%";
     el.style.height = "100%";
     el.style.display = "block";

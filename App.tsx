@@ -83,10 +83,17 @@ export default function App() {
       <GlowBackground />
       <BackgroundGrid />
       <View pointerEvents="box-none" style={styles.botLayer}>
-        <View style={[styles.botBox, { opacity: isDark ? 0.95 : 0 }]}>
+        <View style={styles.botBox}>
           <SplineAvatar />
         </View>
       </View>
+      <View
+        pointerEvents="none"
+        style={[
+          styles.botScrim,
+          { backgroundColor: isDark ? "rgba(11,9,16,0.56)" : "rgba(248,246,252,0.66)" },
+        ]}
+      />
       <TopNav items={NAV_ITEMS} />
       <ScrollView
         style={styles.scroll}
@@ -216,11 +223,17 @@ const styles = StyleSheet.create({
     zIndex: 0,
   } as unknown as ViewStyle,
   botBox: {
-    height: 900,
-    maxHeight: "96%",
-    maxWidth: "96%",
-    width: 860,
+    height: "100%",
+    width: "100%",
   } as ViewStyle,
+  botScrim: {
+    bottom: 0,
+    left: 0,
+    position: "fixed",
+    right: 0,
+    top: 0,
+    zIndex: 0,
+  } as unknown as ViewStyle,
   backgroundGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
