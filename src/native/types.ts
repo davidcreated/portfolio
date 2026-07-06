@@ -51,6 +51,13 @@ export type ShowcaseItem = {
   title: string;
 };
 
+export type WritingItem = {
+  excerpt: string;
+  tag: string;
+  title: string;
+  url: string;
+};
+
 export type PortfolioData = {
   avatar: ImageSource;
   contact: ContactItem[];
@@ -60,10 +67,12 @@ export type PortfolioData = {
   location: string;
   name: string;
   navbar: ContactItem[];
+  mediumUrl: string;
   projects: ProjectItem[];
   resumeUrl: string;
   showcase: ShowcaseItem[];
   skills: string[];
   summary: string;
   work: WorkItem[];
+  writing: WritingItem[];
 };

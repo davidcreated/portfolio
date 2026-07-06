@@ -18,6 +18,7 @@ import { SkillList } from "./src/native/components/SkillList";
 import { StartProject } from "./src/native/components/StartProject";
 import { TimelineList } from "./src/native/components/TimelineList";
 import { TopNav } from "./src/native/components/TopNav";
+import { Writing } from "./src/native/components/Writing";
 import { DATA } from "./src/native/data";
 import { SEO, SITE_URL } from "./src/native/seo";
 import { colors, darkTheme, getThemeVariables, spacing } from "./src/native/styles";
@@ -29,6 +30,7 @@ const NAV_ITEMS = [
   { id: "skills", label: "Skills" },
   { id: "app-showcase", label: "Apps" },
   { id: "projects", label: "Projects" },
+  { id: "contribution", label: "Contribution" },
   { id: "start-a-project", label: "Start a Project" },
   { id: "contact", label: "Contact" },
 ];
@@ -98,6 +100,11 @@ export default function App() {
           </Reveal>
           <Reveal delay={440}>
             <ProjectList items={DATA.projects} onSelectProject={setSelectedProject} />
+          </Reveal>
+          <Reveal delay={480}>
+            <Section title="Contribution">
+              <Writing items={DATA.writing} mediumUrl={DATA.mediumUrl} />
+            </Section>
           </Reveal>
           <Reveal delay={520}>
             <Section title="Start a Project">

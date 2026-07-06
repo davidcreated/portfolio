@@ -10,6 +10,7 @@ export const DATA: PortfolioData = {
   avatar: { uri: avatar },
   resumeUrl:
     "https://drive.google.com/file/d/1CVzdThqP2sIT4ceZe4NXH6SarOyktBh5/view?usp=drive_link",
+  mediumUrl: "https://medium.com/@timifroberts",
   summary:
     "Software Engineer with 6+ years building scalable, high-performance mobile and backend systems across fintech, telehealth, e-commerce, IoT, and logistics. Specializes in cross-platform and native mobile development (Flutter, Swift, Kotlin) backed by Go microservices and real-time, offline-first architectures.\n\nHas shipped production apps serving 20,000+ active users, led engineering teams, and championed clean-architecture and CI/CD practices.",
   skills: [
@@ -288,6 +289,20 @@ export const DATA: PortfolioData = {
       ],
     },
     {
+      title: "Super Planner",
+      href: "https://play.google.com/store/apps/details?id=super.planner.todolist.task.reminder",
+      description:
+        "AI-powered planner and to-do app — manage routines and tasks, track mood daily, and turn goals into action. Live on Google Play.",
+      media:
+        "https://play-lh.googleusercontent.com/xKvWeUpz80pZhfbLuLCtBorRONEMhR46tIP386Pqe9sX9B9AtZtee7wSSqg_aRqL-4i4Wx-zvdN7QzVq_31yiw=s512",
+      links: [
+        {
+          label: "Google Play",
+          url: "https://play.google.com/store/apps/details?id=super.planner.todolist.task.reminder",
+        },
+      ],
+    },
+    {
       title: "Plenti Nigeria",
       href: "https://apps.apple.com/us/app/plenti-nigeria/id6759972919",
       description:
@@ -510,6 +525,23 @@ export const DATA: PortfolioData = {
       ],
     },
     {
+      title: "Super Planner",
+      tagline: "AI planner & routines",
+      note: "Contributor",
+      description:
+        "An AI-powered planner and to-do app for building routines and habits, tracking mood, and turning goals into action. Live on Google Play.",
+      href: "https://play.google.com/store/apps/details?id=super.planner.todolist.task.reminder",
+      aspectRatio: 0.5625,
+      screenshots: [
+        "https://play-lh.googleusercontent.com/-xSz7QOziczYnqcXslQzr4k11sqRPvtvhYs8HR9NMdNXBs6nCW118bFFDe2R3_1hHhmKfGWW0-hwo6MFXRFgFA=w480",
+        "https://play-lh.googleusercontent.com/2c0AqncSZMqUe4ElOGtiHeKFtY6wKqW_Zu61N3DMVWIZ9JqaugJ-JFRrXw29pwJNRZbl_1Yv699--yQlfN_hBg=w480",
+        "https://play-lh.googleusercontent.com/IyLxgxTFdN8cP8zmilGIsyx77PvWLzFqjDNW3Us9lCcn1HC9_HdszwpEDXAHl1hKR8SCpF0CF8LuJ6h4SyMaMA=w480",
+        "https://play-lh.googleusercontent.com/gK8IlCKDxagHKHIsE19MOhanvZBdbqRYbEZeFbnrsEQJlYmBME7smT_fclf2tnVSKuN4Ee0JterPpnG5oXPrlkg=w480",
+        "https://play-lh.googleusercontent.com/hRiULPst8-l1tVeqVg4bzUaDeciYq9areWzIZHw6nHKakZWfxoh434yJpQSMVnK7DVNcnn5gqhkVjU1Sa6AbjDI=w480",
+        "https://play-lh.googleusercontent.com/lLjzwTA1DNDf31pzyja7JTIuiYubiem2uDaJOjls56adjQh4A-9T_4DzeTDUtvZuY41QEcIE0FjAoNGnDOnPyKI=w480",
+      ],
+    },
+    {
       title: "Plenti Nigeria",
       tagline: "Everyday e-commerce",
       description:
@@ -590,6 +622,22 @@ export const DATA: PortfolioData = {
         "https://play-lh.googleusercontent.com/F1GyHlhA-x_epa9ovWPVIdcb-MZqLQwecTQjcR9gwO1wB4VVzGYdNjowWlzLjhBu_H8wd56RIvUXkaf9-TzAbNA=w480",
         "https://play-lh.googleusercontent.com/QtO4B_9hUMTO1OjWWMJrOWiAsZngtLEz0p6cR_MmxSWYJ5g09DdE70mfG0aVoOsWWKJdElo2a6ESEuuVPEL0=w480",
       ],
+    },
+  ],
+  writing: [
+    {
+      title: "Bridging IoT & Mobile Applications",
+      excerpt:
+        "Solving Wi-Fi race conditions, DNS failures, and WebView challenges when connecting mobile apps to IoT devices.",
+      tag: "IoT · Mobile",
+      url: "https://medium.com/@timifroberts/bridging-iot-and-mobile-applications-solving-wi-fi-race-conditions-dns-failures-and-webview-84eb834dcc72",
+    },
+    {
+      title: "From Chaos to Clarity",
+      excerpt:
+        "Taking over and stabilizing a Flutter codebase built by 17 developers — untangling architecture, conventions, and technical debt.",
+      tag: "Flutter · Architecture",
+      url: "https://medium.com/@timifroberts/from-chaos-to-clarity-taking-over-a-flutter-codebase-built-by-17-developers-be87ba82d44d",
     },
   ],
 };
